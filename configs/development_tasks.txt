@@ -1,0 +1,2 @@
+# Do not populate this until the team agrees on a fixed development subset.
+# One official TUA-Bench task ID per line. Keep the final 40-task evaluation set separate.

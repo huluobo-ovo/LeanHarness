@@ -1,0 +1,15 @@
+# This is a planning template, not yet a final experiment configuration.
+experiment_id: baseline-cheap-v1
+agent: mini-swe-agent
+provider: openrouter
+model: SET_AFTER_TEAM_DECISION
+task_set: configs/development_tasks.txt
+max_steps: SET_AFTER_PILOT
+time_limit_seconds: SET_AFTER_PILOT
+per_task_usd_cap: SET_AFTER_PILOT
+seed: 42
+harness:
+  context_manager: false
+  failure_recovery: false
+  pre_submission_verification: false
+  tool_interface: default

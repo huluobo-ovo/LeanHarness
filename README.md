@@ -30,6 +30,18 @@ export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 docker run --rm hello-world
 ```
 
+## Tool-interface v1 tests (no Docker or API key required)
+
+The Role 5 tool-interface modules are intentionally independent of the
+benchmark adapter. Run their unit tests with:
+
+```bash
+/opt/homebrew/bin/uv run --group dev pytest
+```
+
+The tests use fake executors only; they do not contact OpenRouter or execute a
+task container.
+
 ## TUA-Bench bootstrap
 
 ```bash

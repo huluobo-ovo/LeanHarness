@@ -1,0 +1,11 @@
+--- /home/hp/pe6203/TUA-Bench/.venv/lib/python3.12/site-packages/harbor/agents/installed/mini_swe_agent.py.bak	2026-10-26 17:50:10.451006733 +0800
++++ /home/hp/pe6203/TUA-Bench/.venv/lib/python3.12/site-packages/harbor/agents/installed/mini_swe_agent.py	2026-10-26 20:16:10.885778067 +0800
+@@ -399,7 +399,7 @@
+                 '  echo \'export PATH="$HOME/.local/bin:$PATH"\' >> "$HOME/.bashrc";'
+                 " fi && "
+                 'source "$HOME/.local/bin/env" && '
+-                f"uv tool install mini-swe-agent{version_spec} && "
++                f"uv tool install --with 'litellm[proxy]' mini-swe-agent{version_spec} && "
+                 "mini-swe-agent --help"
+             ),
+         )

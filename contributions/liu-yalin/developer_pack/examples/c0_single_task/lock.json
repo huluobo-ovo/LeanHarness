@@ -1,0 +1,74 @@
+{
+    "schema_version": 1,
+    "created_at": "2026-10-26T14:17:13.160784Z",
+    "harbor": {
+        "version": "0.6.3",
+        "is_editable": false
+    },
+    "invocation": [
+        "/home/hp/pe6203/TUA-Bench/.venv/bin/harbor",
+        "run",
+        "-p",
+        "tasks/000-count-nuclei",
+        "-a",
+        "mini-swe-agent",
+        "-m",
+        "openrouter/minimax/minimax-m3.1-flash",
+        "--agent-kwarg",
+        "version=2.4.3",
+        "--agent-kwarg",
+        "config_file=shared/settings/mini_base.yaml",
+        "--agent-kwarg",
+        "cost_limit=0.06",
+        "-o",
+        "jobs/pilot-c0-minimax",
+        "--yes"
+    ],
+    "n_concurrent_trials": 4,
+    "retry": {
+        "max_retries": 0,
+        "exclude_exceptions": [
+            "VerifierTimeoutError",
+            "RewardFileEmptyError",
+            "AgentTimeoutError",
+            "RewardFileNotFoundError",
+            "VerifierOutputParseError"
+        ],
+        "wait_multiplier": 1.0,
+        "min_wait_sec": 1.0,
+        "max_wait_sec": 60.0
+    },
+    "trials": [
+        {
+            "task": {
+                "name": "000-count-nuclei",
+                "type": "local",
+                "digest": "sha256:de96920523b1b2df15000da658bec222176637e4495899a1b03eddad9b9540b6",
+                "path": "tasks/000-count-nuclei"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "name": "mini-swe-agent",
+                "model_name": "openrouter/minimax/minimax-m3.1-flash",
+                "kwargs": {
+                    "version": "2.4.3",
+                    "config_file": "shared/settings/mini_base.yaml",
+                    "cost_limit": 0.06
+                },
+                "env": {}
+            },
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        }
+    ]
+}

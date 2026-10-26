@@ -117,7 +117,8 @@ For a blocked malformed action, no shell command is run. The wrapper produces a 
     "exception_info": "LeanHarness rejected a malformed tool request before execution.",
     "extra": {
         "leanharness_guarded": True,
-        "leanharness_category": "empty_command",
+        "leanharness_category": "guarded_request",
+        "leanharness_guard_reason": "empty_command",
         "leanharness_summary": "The bash command is empty, so nothing was executed.",
         "leanharness_next_step": "Provide one concrete shell command."
     }

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tests/test_outputs.py", line 60, in _run_named_test
+    fn()
+  File "/tests/test_outputs.py", line 43, in test_output_exists
+    _assert_file_nonempty(OUTPUT_COUNT_PATH)
+  File "/tests/test_outputs.py", line 19, in _assert_file_nonempty
+    assert path.exists(), f"Missing required file: {path}"
+AssertionError: Missing required file: /app/artifacts/nuclei_count.txt

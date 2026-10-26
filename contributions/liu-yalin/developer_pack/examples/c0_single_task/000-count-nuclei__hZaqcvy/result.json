@@ -1,0 +1,107 @@
+{
+    "id": "d47c73e8-8ad0-4c5b-a3e3-244a05cf49d5",
+    "task_name": "local/000-count-nuclei",
+    "trial_name": "000-count-nuclei__hZaqcvy",
+    "trial_uri": "file:///home/hp/pe6203/TUA-Bench/jobs/pilot-c0-minimax/2026-10-26__22-17-09/000-count-nuclei__hZaqcvy",
+    "task_id": {
+        "path": "tasks/000-count-nuclei"
+    },
+    "source": null,
+    "task_checksum": "e1ee919c4383c8c2bc0906fc095727d98bc474403533f65b9e1dce6e6c1db305",
+    "config": {
+        "task": {
+            "path": "tasks/000-count-nuclei",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "000-count-nuclei__hZaqcvy",
+        "trials_dir": "jobs/pilot-c0-minimax/2026-10-26__22-17-09",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "mini-swe-agent",
+            "import_path": null,
+            "model_name": "openrouter/minimax/minimax-m3.1-flash",
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {
+                "version": "2.4.3",
+                "config_file": "shared/settings/mini_base.yaml",
+                "cost_limit": 0.06
+            },
+            "env": {}
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "suppress_override_warnings": false,
+            "mounts_json": null,
+            "env": {},
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [],
+        "job_id": "b393874a-a8ba-4a86-89b6-59436e870262"
+    },
+    "agent_info": {
+        "name": "mini-swe-agent",
+        "version": "2.4.3",
+        "model_info": {
+            "name": "minimax/minimax-m3.1-flash",
+            "provider": "openrouter"
+        }
+    },
+    "agent_result": {
+        "n_input_tokens": 476067,
+        "n_cache_tokens": 455424,
+        "n_output_tokens": 17533,
+        "cost_usd": 0.0,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 0.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-10-26T14:17:19.421741Z",
+    "finished_at": "2026-10-26T14:29:58.990743Z",
+    "environment_setup": {
+        "started_at": "2026-10-26T14:17:19.684975Z",
+        "finished_at": "2026-10-26T14:18:39.358657Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-10-26T14:18:39.367583Z",
+        "finished_at": "2026-10-26T14:21:46.523652Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-10-26T14:21:46.531174Z",
+        "finished_at": "2026-10-26T14:29:47.397245Z"
+    },
+    "verifier": {
+        "started_at": "2026-10-26T14:29:47.856356Z",
+        "finished_at": "2026-10-26T14:29:48.914033Z"
+    },
+    "step_results": null
+}

@@ -38,6 +38,7 @@ class MiniSweAgent:
             environment,
             command=(
                 "set -euo pipefail; "
+                f"uv tool install mini-swe-agent{version_spec} && "
                 "mini-swe-agent --help"
             ),
         )
@@ -60,6 +61,7 @@ def test_rendered_adapter_contains_reversible_role5_integration():
     assert "leanharness_role5.Role5DefaultAgent" in patched
     assert "_install_role5_runtime" in patched
     assert "effective_config_yaml" in patched
+    assert "litellm[proxy]" in patched
 
 
 def test_patch_rejects_unknown_adapter_layout():

@@ -34,6 +34,14 @@ def render_patched_adapter(adapter_text: str, runtime_source: str) -> str:
         f"\n{PATCH_MARKER}\n_ROLE5_RUNTIME_B64 = {encoded_runtime!r}\n"
     )
     text = adapter_text.replace("import json\nimport os\n", imports, 1)
+    install_command = 'f"uv tool install mini-swe-agent{version_spec} && "'
+    if install_command not in text:
+        raise ValueError("unsupported Harbor mini-SWE-agent install command")
+    text = text.replace(
+        install_command,
+        'f"uv tool install --with \'litellm[proxy]\' mini-swe-agent{version_spec} && "',
+        1,
+    )
     text = text.replace(
         "        self._reasoning_effort = reasoning_effort\n        self._config_yaml: str | None = None\n",
         "        self._reasoning_effort = reasoning_effort\n"

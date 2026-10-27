@@ -19,6 +19,12 @@ the standard action, output, return code, exception, and `tool_call_id`
 contracts, so Harbor trajectory conversion and the official verifier remain
 unchanged.
 
+The patch also applies the shared Harbor compatibility fix from Liu Yalin's
+developer pack: it installs mini-SWE-agent with `litellm[proxy]`, which supplies
+the MCP dependency needed by the OpenRouter/LiteLLM stack. This is an
+environment fix, not a Role 5 harness intervention, and must stay identical
+for C0, T1, and T2.
+
 ## Compatibility contract
 
 - Harbor: **0.6.3**

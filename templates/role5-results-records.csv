@@ -1,0 +1,1 @@
+run_date,configuration,task_id,model,agent_version,adapter_commit,run_status,reward,exception,runtime_seconds,input_tokens,output_tokens,harbor_cost_usd,actual_openrouter_cost_usd,tool_actions,guarded_actions,file_not_found,command_not_found,permission_denied,timeout_or_exception,other_failures,trajectory_path,harbor_output_path,notes

@@ -1,0 +1,4 @@
+started_at,configuration,task_id,run_status,reward,exception,runtime_seconds,trial_path,notes
+2026-10-27T16:51:26.651938,R4-A+B,000-count-nuclei,infrastructure_failure,,RuntimeError,1143.673,results/raw/role4-pilot-main/2026-10-27__16-51-26/000-count-nuclei__RBYpjEt,Docker image build/pull network failure
+2026-10-27T17:38:40.718737,R4-A+B,000-count-nuclei,infrastructure_failure,,AgentSetupTimeoutError,654.915,results/raw/role4-pilot-main-amd64/2026-10-27__17-38-40/000-count-nuclei__T2WWRZz,Agent dependency setup exceeded the infrastructure timeout
+2026-10-27T17:54:28.272190,R4-A+B,000-count-nuclei,completed,0.0,,675.518,results/raw/role4-pilot-main-amd64-timeout/2026-10-27__17-54-28/000-count-nuclei__ZstLpgs,

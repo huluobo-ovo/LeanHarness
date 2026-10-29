@@ -84,6 +84,21 @@ The sequential batch launcher is `scripts/run_role5_batch.py`. It runs tasks one
 
 Repeat `--task <task-ID>` in the order listed in `configs/task_list_40.txt` to form a sequential batch. Before running, read the [experiment guide](docs/role5-experiment-guide.md) and confirm the model, budget, output directory, and recovery rules. Do not launch the same batch concurrently or overwrite existing formal results with a new run.
 
+## Role 4 Configurations and Results
+
+Role 4 evaluates a task-aware pre-submission verification workflow.  The full
+R4-A+B configuration combines the workflow with a mandatory final checklist;
+R4-A removes that checklist as the internal ablation.
+
+| Configuration ID | File | Purpose |
+| --- | --- | --- |
+| R4-A+B | `configs/role4-workflow-mandatory.yaml` | Full workflow plus mandatory verification block |
+| R4-A | `configs/role4-workflow-only.yaml` | Workflow-only ablation |
+
+The complete 40-task tables, integrity disclosures, and paired comparison are
+in [`results/role4/`](results/role4/README.md).  Exact commands and recovery
+records are in the [Role 4 experiment record](docs/role4-experiment.md).
+
 ## Results, Cost, and Analysis
 
 - Local formal results are stored in `results/role5/formal-results.csv`; raw run artifacts are stored in `runs/role5-formal/`. Neither should be submitted to GitHub.

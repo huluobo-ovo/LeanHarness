@@ -1,51 +1,51 @@
-# LeanHarness：成本感知的 Agent Harness 优化
+# LeanHarness: Cost-Aware Agent Harness Optimization
 
-本仓库是 PE6203 项目 5 的小组代码库。项目研究的问题是：在**保持任务、模型和预算一致**的前提下，能否通过改进 AI agent 的“工具使用通道”，让它更稳定、更高效地完成 TUA-Bench 任务。
+This repository is the team codebase for PE6203 Project 5. The project asks whether an AI agent can complete TUA-Bench tasks more reliably and efficiently by improving its tool-use channel, while keeping the **tasks, model, and budget identical**.
 
-当前实现以 mini-SWE-agent 为基础，通过 Harbor 运行 TUA-Bench；Role 5（工具接口层）提供两份正式配置：
+The current implementation uses mini-SWE-agent and runs TUA-Bench through Harbor. Role 5 (the tool-interface layer) provides two formal configurations:
 
-- **T1 / Result Normalizer**：将不同工具的杂乱返回结果整理成一致、短小、可读的格式；
-- **T2 / Result Normalizer + Command Guard**：在 T1 基础上，额外对危险、重复或格式不正确的命令进行检查与提示。
+- **T1 / Result Normalizer**: converts inconsistent tool outputs into a short, consistent, readable format.
+- **T2 / Result Normalizer + Command Guard**: builds on T1 by checking and providing guidance for unsafe, repeated, or malformed commands.
 
-有关“AI 助手发出命令 → 工具层处理 → 环境返回结果”的具体结构，请见 [工具接口说明](docs/tool-interface-map.md) 和 [Harbor 接入说明](docs/role5-harbor-integration.md)。
+For the detailed flow of “AI agent issues a command → tool layer processes it → environment returns a result,” see the [tool-interface map](docs/tool-interface-map.md) and [Harbor integration guide](docs/role5-harbor-integration.md).
 
-## 统一实验设置
+## Shared Experimental Settings
 
-| 项目 | 统一设置 |
+| Item | Shared setting |
 | --- | --- |
-| 基准测试 | TUA-Bench（固定 commit：`3497fd320abcafaf4797424192c891a593fd7964`） |
-| 运行框架 | Harbor `0.6.3`、mini-SWE-agent `2.4.3`、Python `3.12.15` |
-| 正式任务 | `configs/task_list_40.txt` 中的固定 40 题 |
-| 正式配置 | 相同任务集、最多 30 步、单题最多 900 秒 |
-| 便宜模型预算 | 单题最多 USD 0.06 |
-| 团队总预算 | 目标 USD 35，绝对上限 USD 40 |
+| Benchmark | TUA-Bench (pinned commit: `3497fd320abcafaf4797424192c891a593fd7964`) |
+| Runtime stack | Harbor `0.6.3`, mini-SWE-agent `2.4.3`, Python `3.12.15` |
+| Formal tasks | The fixed 40 tasks in `configs/task_list_40.txt` |
+| Formal configurations | Same task set, at most 30 steps, and at most 900 seconds per task |
+| Budget for the inexpensive model | At most USD 0.06 per task |
+| Team budget | USD 35 target and USD 40 hard limit |
 
-正式实验中，每个配置对每道题只运行一次；0 分和普通失败也必须保留。仅发生可确认的基础设施故障时可以重跑，并要在结果中记录原因。严禁提交 API Key，也不要运行 `harbor upload`。
+In formal experiments, each configuration runs each task once. Zero-reward runs and ordinary failures must be retained. A rerun is allowed only for a confirmed infrastructure failure, and its reason must be recorded. Never commit API keys or run `harbor upload`.
 
-## 快速开始
+## Quick Start
 
-### 1. 前置条件
+### 1. Prerequisites
 
 - Python 3.12
 - [uv](https://docs.astral.sh/uv/)
-- Docker Desktop（已启动）
-- OpenRouter API Key（仅真实模型实验需要）
+- Docker Desktop (running)
+- An OpenRouter API key (required only for real model runs)
 
-在 macOS 上，如果终端找不到 Docker CLI：
+On macOS, if the terminal cannot find the Docker CLI:
 
 ```bash
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 ```
 
-### 2. 配置本地密钥
+### 2. Configure a Local API Key
 
 ```bash
 cp .env.example .env
 ```
 
-然后在 `.env` 中填入本机自己的 `OPENROUTER_API_KEY`。`.env` 已被忽略，绝不能提交或发送给组员。
+Then add your own `OPENROUTER_API_KEY` to `.env`. The file is ignored by Git and must never be committed or shared with teammates.
 
-### 3. 无费用检查
+### 3. No-Cost Checks
 
 ```bash
 /opt/homebrew/bin/python3.12 scripts/doctor.py
@@ -53,9 +53,9 @@ docker run --rm hello-world
 /opt/homebrew/bin/uv run --group dev pytest
 ```
 
-单元测试使用模拟执行器，不会访问 OpenRouter、Docker 任务容器或产生模型费用。
+The unit tests use fake executors and do not call OpenRouter, run a Docker task container, or incur model cost.
 
-### 4. 初始化 TUA-Bench
+### 4. Initialize TUA-Bench
 
 ```bash
 cd vendor/TUA-Bench
@@ -64,16 +64,16 @@ cd vendor/TUA-Bench
 cd ../..
 ```
 
-`setup-env` 会下载基准测试资源。首次正式实验前，先按 [实验指南](docs/role5-experiment-guide.md) 完成单题验证，确认 Harbor Exceptions 为 0。
+`setup-env` downloads benchmark assets. Before the first formal run, follow the [experiment guide](docs/role5-experiment-guide.md) to validate one task and confirm that Harbor Exceptions is 0.
 
-## Role 5 配置与运行
+## Role 5 Configurations and Runs
 
-| 配置 ID | 文件 | 作用 |
+| Configuration ID | File | Purpose |
 | --- | --- | --- |
-| T1 | `configs/tool-interface-normalizer.yaml` | 仅启用 Result Normalizer |
-| T2 | `configs/tool-interface-complete.yaml` | 启用 Result Normalizer 与 Command Guard |
+| T1 | `configs/tool-interface-normalizer.yaml` | Enables Result Normalizer only |
+| T2 | `configs/tool-interface-complete.yaml` | Enables both Result Normalizer and Command Guard |
 
-批处理启动器位于 `scripts/run_role5_batch.py`。它会以固定任务顺序逐题运行、写入本地结果，并设置 Apple Silicon 所需的 `linux/amd64` Docker 平台。示例：
+The sequential batch launcher is `scripts/run_role5_batch.py`. It runs tasks one at a time in a fixed order, writes local results, and sets the `linux/amd64` Docker platform required by Apple Silicon. Example:
 
 ```bash
 /opt/homebrew/bin/uv run python scripts/run_role5_batch.py \
@@ -82,39 +82,39 @@ cd ../..
   --task 003-rebuild-energy-model
 ```
 
-按 `configs/task_list_40.txt` 的顺序重复添加 `--task <任务ID>`，即可组成顺序批次。运行前请先阅读并确认 [实验指南](docs/role5-experiment-guide.md) 中的模型、预算、输出目录和恢复规则。不要并发启动同一批任务，也不要用新的运行覆盖已有的正式结果。
+Repeat `--task <task-ID>` in the order listed in `configs/task_list_40.txt` to form a sequential batch. Before running, read the [experiment guide](docs/role5-experiment-guide.md) and confirm the model, budget, output directory, and recovery rules. Do not launch the same batch concurrently or overwrite existing formal results with a new run.
 
-## 结果、成本与分析
+## Results, Cost, and Analysis
 
-- 本地正式结果保存在 `results/role5/formal-results.csv`，原始运行目录在 `runs/role5-formal/`；二者均不提交到 GitHub。
-- 每题至少记录：任务 ID、配置 ID、模型、reward、异常、运行时间、token 与实际费用。
-- Harbor 可能将 OpenRouter 费用显示为 `0.0`；正式批次前后应查询 OpenRouter 的累计 usage，以差值核对真实成本。
-- 分析规则与四项核心指标见 [Role 5 分析方案](docs/role5-analysis-protocol.md)。
+- Local formal results are stored in `results/role5/formal-results.csv`; raw run artifacts are stored in `runs/role5-formal/`. Neither should be submitted to GitHub.
+- Record at least the task ID, configuration ID, model, reward, exception status, runtime, tokens, and actual cost for every task.
+- Harbor may report OpenRouter cost as `0.0`; check OpenRouter cumulative usage before and after a formal batch and use the difference to verify the actual cost.
+- The analysis rules and four core metrics are defined in the [Role 5 analysis protocol](docs/role5-analysis-protocol.md).
 
-## 目录说明
+## Directory Guide
 
 ```text
-adapters/       Harbor 与 mini-SWE-agent 的可复现接入代码
-configs/        T1/T2 配置、固定任务清单与开发题清单
-docs/           实验、接入、结果记录及分析文档
-scripts/        环境检查、配置校验、运行与结果分析脚本
-src/            LeanHarness 工具接口层实现
-tests/          不产生模型费用的单元测试
-templates/      结果记录表模板
-contributions/  成员提交物的原样归档（非运行时依赖）
-vendor/         第三方上游项目快照；请勿修改其 README
+adapters/       Reproducible Harbor and mini-SWE-agent integration code
+configs/        T1/T2 configurations, formal task list, and development tasks
+docs/           Experiment, integration, results-recording, and analysis documents
+scripts/        Environment checks, configuration validation, run, and analysis scripts
+src/            LeanHarness tool-interface implementation
+tests/          Unit tests that do not incur model cost
+templates/      Results-recording templates
+contributions/  Original member-submission archives (not runtime dependencies)
+vendor/         Upstream third-party snapshots; do not modify their README files
 ```
 
-## 成员 2–5 的交付要求
+## Deliverables for Members 2–5
 
-成员可先用免费模型做单题开发，不需要等待共享 C0/C1。正式实验方案按其研究结构提交：
+Members may use a free model for single-task development without waiting for shared C0/C1 results. Formal experiment configurations should reflect the structure of the proposed method:
 
-1. 若有两个可独立启用的组件 A、B：提交 A-only、B-only、A+B 三个配置，并分析组件贡献；
-2. 若只有一个不可拆分的改动：只提交 A，并与共享 C0 比较；不要为了凑数量设计无研究意义的消融；
-3. 若单项改动内仍有关键子组件：提交完整版及关闭该关键子组件的消融版。
+1. If there are two independently enabled components, A and B, submit A-only, B-only, and A+B configurations, and analyze each component’s contribution.
+2. If there is one indivisible change, submit only A and compare it with shared C0; do not create a meaningless ablation merely to increase the number of configurations.
+3. If a single change still contains a key internal component, submit the complete version and an ablation with that component disabled.
 
-每位成员还应交付改动与假设、配置 ID、精确运行命令、40 题完整结果、原始日志/轨迹，以及与 C0 和自身消融配置的对比分析。
+Each member must also submit the change and hypothesis, configuration IDs, exact run commands, full results for the 40 tasks, raw logs/trajectories, and a comparative analysis against C0 and their own ablations.
 
-## 归档 README 的处理原则
+## Handling Archived README Files
 
-根目录的本文件是项目总入口。`contributions/liu-yalin/README.md` 和其 `developer_pack/README_zh.md` 是归档材料的目录说明，保留它们可以追溯提交来源和原始交付背景；它们不与根 README 重复，也不作为项目运行说明。`vendor/` 下的 README 属于上游依赖，保持原样。
+This root README is the project’s main entry point. `contributions/liu-yalin/README.md` and `developer_pack/README_zh.md` are directory-level descriptions for archived material. They are retained to preserve the provenance and original context of the submission; they do not duplicate this project README and are not runtime instructions. README files under `vendor/` belong to upstream dependencies and remain unchanged.

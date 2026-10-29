@@ -27,7 +27,7 @@ CONFIGS = {
         "label": "workflow-only ablation",
         "original": RAW / "role4-ablation-40" / "2026-10-29__01-25-13",
         "rerun": RAW / "role4-ablation-infra-reruns" / "2026-10-29__08-07-08",
-        "actual_batch_cost_usd": None,
+        "actual_batch_cost_usd": 1.2225,
     },
     "R4-A+B": {
         "label": "workflow + mandatory verification checklist",

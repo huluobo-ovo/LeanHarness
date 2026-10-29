@@ -1,3 +1,3 @@
 configuration,description,total_tasks,total_reward,mean_reward,positive_reward_tasks,full_reward_tasks,partial_reward_tasks,zero_reward_tasks,submitted_tasks,step_limit_tasks,time_limit_tasks,verifier_path_probe_tasks,input_tokens,cache_tokens,output_tokens,average_runtime_seconds,actual_batch_cost_usd
-R4-A,workflow-only ablation,40,19.059500800814,0.47648752002,20,18,2,20,21,19,0,6,26268783,24060616,867333,244.152,
+R4-A,workflow-only ablation,40,19.059500800814,0.47648752002,20,18,2,20,21,19,0,6,26268783,24060616,867333,244.152,1.2225
 R4-A+B,workflow + mandatory verification checklist,40,16.463543308107,0.411588582703,17,15,2,23,14,23,3,0,24348264,23003776,789391,389.866,1.0239

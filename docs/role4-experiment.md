@@ -146,10 +146,12 @@ artifacts.
 
 OpenRouter usage was recorded as USD 2.6178 before R4-A+B and USD 3.6417 after
 its formal run and infrastructure replacements, so its measured cost was USD
-1.0239 (USD 0.0256 per task when divided across the final 40-task table).  The
-post-R4-A account usage was not preserved in the supplied evidence, so R4-A's
-actual batch cost is left blank rather than inferred from Harbor's unreliable
-`0.0` values.
+1.0239 (USD 0.0256 per task when divided across the final 40-task table).
+OpenRouter usage was USD 4.8642 after R4-A and its infrastructure replacements,
+so R4-A's measured cost was USD 1.2225 (USD 0.0306 per task).  The combined
+Role 4 cost was USD 2.2464.  These account deltas are batch-level evidence; the
+per-task `actual_openrouter_cost_usd` cells remain blank because OpenRouter did
+not provide an auditable task-level allocation and Harbor reported `0.0`.
 
 ## Known limitations
 

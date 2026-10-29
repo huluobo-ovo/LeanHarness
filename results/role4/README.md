@@ -55,12 +55,19 @@ documented infrastructure failures were replaced.
 | 900-second agent limit reached | 3 | 0 |
 | Mean agent runtime (seconds) | 389.866 | 244.152 |
 | Input / cache / output tokens | 24,348,264 / 23,003,776 / 789,391 | 26,268,783 / 24,060,616 / 867,333 |
-| Actual OpenRouter batch cost | USD 1.0239 | not recoverable from the available records |
+| Actual OpenRouter batch cost | USD 1.0239 | USD 1.2225 |
+| Average actual cost per final task | USD 0.0256 | USD 0.0306 |
 
 On the paired task comparison, R4-A and R4-A+B tied on 30 tasks, R4-A was
 better on 7, and R4-A+B was better on 3.  The ablation improved mean reward by
 `0.064899`, so the mandatory block did not support the original performance
 hypothesis under this run.
+
+The two Role 4 configurations consumed USD 2.2464 in total.  R4-A+B was
+measured from OpenRouter cumulative usage USD 2.6178 to USD 3.6417; R4-A was
+measured from USD 3.6417 to USD 4.8642.  These are batch-level account deltas,
+so they are reported in the configuration summary rather than assigned to
+individual task rows.
 
 The three R4-A+B `TimeExceeded` records are
 `051-hide-left-dock`, `084-plate-thermal-sim`, and

@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections import defaultdict
 
 
-CONFIGS = ("C0", "T1", "T2")
+CONFIGS = ("C0", "T1", "T2", "T3")
 EXCLUDED_STATUSES = {"not_run", "infrastructure_failure"}
 FAILURE_COUNT_FIELDS = (
     "file_not_found",
@@ -49,7 +49,7 @@ def latest_evaluable_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
 
 
 def summarize(rows: list[dict[str, str]]) -> list[dict[str, object]]:
-    """Return one metrics row for each pre-registered C0/T1/T2 configuration."""
+    """Return one metrics row for each pre-registered C0/T1/T2/T3 configuration."""
     missing = REQUIRED_COLUMNS - set(rows[0]) if rows else REQUIRED_COLUMNS
     if missing:
         raise ValueError(f"CSV is missing required columns: {', '.join(sorted(missing))}")

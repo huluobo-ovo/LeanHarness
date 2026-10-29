@@ -1,0 +1,41 @@
+# Role 5 ablation configuration: T3 (command guard only).
+#
+# This isolates the pre-execution command guard from the Result Normalizer.
+# It must use the same task list, model, budget, step limit, and time limit as
+# C0, T1, and T2.
+experiment:
+  id: role5-t3-command-guard-v1
+  owner: role-5
+  status: formal_ablation
+  comparison_baseline: C0
+
+lineage:
+  base_agent_config: contributions/liu-yalin/developer_pack/settings/mini_base.yaml
+  task_list: configs/task_list_40.txt
+  source_task_list: contributions/liu-yalin/developer_pack/settings/task_list_40.txt
+
+runtime:
+  max_steps: 30
+  wall_time_limit_seconds: 900
+  seed_policy: shared_team_seed_required
+  per_task_usd_cap: 0.06
+
+model:
+  provider: openrouter
+  name: TEAM_DECISION_REQUIRED
+  # Runtime uses the team-locked inexpensive model passed by the launcher.
+
+leanharness:
+  tool_interface:
+    guard_enabled: true
+    normalizer_enabled: false
+    max_command_chars: 12000
+    summary_max_chars: 600
+    raw_tail_max_chars: 3000
+
+outputs:
+  run_root: runs/role5/t3-command-guard
+  retain_raw_harbor_result: true
+  retain_agent_logs: true
+  retain_trajectories: true
+  retain_cost_snapshot: true

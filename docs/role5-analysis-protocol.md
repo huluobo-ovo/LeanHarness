@@ -1,7 +1,7 @@
 # Role 5 analysis protocol
 
 **Status:** Defined before formal T1/T2 results are collected.  
-**Unit of analysis:** One task under one configuration (`C0`, `T1`, or `T2`).
+**Unit of analysis:** One task under one configuration (`C0`, `T1`, `T2`, or `T3`).
 
 ## Fixed comparison conditions
 
@@ -15,6 +15,7 @@ is the Role 5 tool-interface setting:
 | C0 | Off | Off |
 | T1 | Off | On |
 | T2 | On | On |
+| T3 | On | Off |
 
 ## Data inclusion and integrity rules
 
@@ -68,6 +69,9 @@ prevented container execution as an executed failure. Inspect both measures:
 2. **T2 vs T1:** isolates the incremental Command Guard.
 3. **T2 vs C0:** reports the complete Role 5 scheme, but does not by itself
    explain which component caused the change.
+4. **T3 vs C0:** isolates the Command Guard by itself.
+5. **T2 vs T3:** estimates the incremental value of Result Normalizer when the
+   Command Guard is already enabled.
 
 For each comparison, report the raw value for both configurations and the
 difference (`candidate - reference`) for success rate and unproductive-action

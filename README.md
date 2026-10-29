@@ -2,10 +2,11 @@
 
 This repository is the team codebase for PE6203 Project 5. The project asks whether an AI agent can complete TUA-Bench tasks more reliably and efficiently by improving its tool-use channel, while keeping the **tasks, model, and budget identical**.
 
-The current implementation uses mini-SWE-agent and runs TUA-Bench through Harbor. Role 5 (the tool-interface layer) provides two formal configurations:
+The current implementation uses mini-SWE-agent and runs TUA-Bench through Harbor. Role 5 (the tool-interface layer) provides three formal configurations:
 
 - **T1 / Result Normalizer**: converts inconsistent tool outputs into a short, consistent, readable format.
 - **T2 / Result Normalizer + Command Guard**: builds on T1 by checking and providing guidance for unsafe, repeated, or malformed commands.
+- **T3 / Command Guard**: enables Command Guard only, isolating the guard from Result Normalizer.
 
 For the detailed flow of “AI agent issues a command → tool layer processes it → environment returns a result,” see the [tool-interface map](docs/tool-interface-map.md) and [Harbor integration guide](docs/role5-harbor-integration.md).
 
@@ -72,6 +73,7 @@ cd ../..
 | --- | --- | --- |
 | T1 | `configs/tool-interface-normalizer.yaml` | Enables Result Normalizer only |
 | T2 | `configs/tool-interface-complete.yaml` | Enables both Result Normalizer and Command Guard |
+| T3 | `configs/tool-interface-command-guard.yaml` | Enables Command Guard only |
 
 The sequential batch launcher is `scripts/run_role5_batch.py`. It runs tasks one at a time in a fixed order, writes local results, and sets the `linux/amd64` Docker platform required by Apple Silicon. Example:
 
@@ -95,7 +97,7 @@ Repeat `--task <task-ID>` in the order listed in `configs/task_list_40.txt` to f
 
 ```text
 adapters/       Reproducible Harbor and mini-SWE-agent integration code
-configs/        T1/T2 configurations, formal task list, and development tasks
+configs/        T1/T2/T3 configurations, formal task list, and development tasks
 docs/           Experiment, integration, results-recording, and analysis documents
 scripts/        Environment checks, configuration validation, run, and analysis scripts
 src/            LeanHarness tool-interface implementation

@@ -23,6 +23,13 @@ is the Role 5 tool-interface setting:
 - Exclude only `not_run` and documented `infrastructure_failure` rows from
   performance denominators. Keep them in the exported CSV and report their
   count separately.
+- Keep every raw attempt in the CSV. When a task has more than one valid
+  attempt because of a documented rerun, calculate metrics from the **last
+  valid attempt in CSV order**; report earlier valid attempts as superseded.
+  An infrastructure-only row never replaces a valid task result.
+- Treat an empty failure-count field (`file_not_found`, `command_not_found`,
+  `permission_denied`, `timeout_or_exception`, or `other_failures`) as zero.
+  Other required numeric values remain mandatory.
 - A task is **successful** only if `reward > 0` and `exception = NO`.
 - Use `actual_openrouter_cost_usd`, measured as OpenRouter cumulative usage
   after minus before the run, when Harbor reports zero cost.
@@ -38,9 +45,9 @@ is the Role 5 tool-interface setting:
 | Cost per success | total actual OpenRouter cost / successful tasks | Does it improve the cost-success trade-off? |
 | Unproductive executed-action rate | `(file-not-found + command-not-found + permission-denied + timeout/exception + other failures) / total tool actions` | Does clearer feedback reduce commands that actually waste an execution turn? |
 
-`evaluable tasks` are every row except `not_run` and
-`infrastructure_failure`. If no task succeeds, report cost per success as
-`n.a.` rather than zero.
+`evaluable tasks` are the last valid row for each task after excluding
+`not_run` and `infrastructure_failure`. If no task succeeds, report cost per
+success as `n.a.` rather than zero.
 
 ## Guard-specific audit metric
 
@@ -70,14 +77,15 @@ sample size and concrete trajectory examples.
 
 ## Reproducible summary command
 
-After filling the CSV using the PR #7 template, run:
+Run the analysis against the raw result CSV with the project environment:
 
 ```bash
-/opt/homebrew/bin/python3.12 scripts/analyze_role5_results.py \
-  --input results/role5/role5-results-records.csv \
+/opt/homebrew/bin/uv run python scripts/analyze_role5_results.py \
+  --input results/role5/formal-results.csv \
   --output results/role5/analysis-summary.csv
 ```
 
 The script validates numeric and categorical fields, calculates every metric
-above, and writes one summary row each for C0, T1, and T2. It does not make a
-model call or modify raw task artifacts.
+above, writes one summary row each for C0, T1, and T2, and reports raw,
+excluded, and superseded attempt counts separately. It does not make a model
+call or modify raw task artifacts.

@@ -51,6 +51,59 @@ def test_infrastructure_failure_is_recorded_but_excluded():
     assert output[0]["excluded_runs"] == 1
 
 
+def test_blank_failure_counts_are_zero():
+    output = summarize(
+        [
+            row(
+                "C0",
+                file_not_found="",
+                command_not_found="",
+                permission_denied="",
+                timeout_or_exception="",
+                other_failures="",
+            ),
+            row("T1"),
+            row("T2"),
+        ]
+    )
+
+    assert output[0]["executed_failure_actions"] == 0
+    assert output[0]["unproductive_executed_action_rate"] == 0
+
+
+def test_latest_valid_attempt_is_used_for_a_documented_rerun():
+    output = summarize(
+        [
+            row("C0", task_id="054-prostate-label-obj", reward="0", actual_openrouter_cost_usd="0.99"),
+            row("C0", task_id="054-prostate-label-obj", reward="1", actual_openrouter_cost_usd="0.05"),
+            row("T1"),
+            row("T2"),
+        ]
+    )
+
+    assert output[0]["rows_recorded"] == 2
+    assert output[0]["evaluable_attempts"] == 2
+    assert output[0]["evaluable_tasks"] == 1
+    assert output[0]["superseded_evaluable_attempts"] == 1
+    assert output[0]["successful_tasks"] == 1
+    assert output[0]["total_actual_openrouter_cost_usd"] == 0.05
+
+
+def test_infrastructure_failure_never_replaces_a_valid_result():
+    output = summarize(
+        [
+            row("C0", task_id="033-prostate-volume-est", reward="1"),
+            row("C0", task_id="033-prostate-volume-est", run_status="infrastructure_failure", exception="YES"),
+            row("T1"),
+            row("T2"),
+        ]
+    )
+
+    assert output[0]["evaluable_tasks"] == 1
+    assert output[0]["excluded_runs"] == 1
+    assert output[0]["successful_tasks"] == 1
+
+
 def test_invalid_exception_is_rejected():
     with pytest.raises(ValueError, match="exception"):
         summarize([row("C0", exception="maybe")])

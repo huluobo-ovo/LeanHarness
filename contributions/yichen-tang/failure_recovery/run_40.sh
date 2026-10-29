@@ -1,6 +1,7 @@
 #!/bin/bash
 # Run the 40-task set for the main config, then the ablation config.
-# Usage: export OPENROUTER_API_KEY=...  then  bash ~/Downloads/run_40.sh
+# Usage: export OPENROUTER_API_KEY=...  then  bash run_40.sh [config ...]
+# Configs: main ablation salvage-only (default: main ablation)
 
 set -u
 
@@ -44,7 +45,16 @@ if [ "$N" -ne 40 ]; then
   exit 1
 fi
 
-for CFG in main ablation; do
+CONFIGS=("$@")
+[ ${#CONFIGS[@]} -eq 0 ] && CONFIGS=(main ablation)
+for CFG in "${CONFIGS[@]}"; do
+  if [ ! -f "$FR/failure-recovery-$CFG.yaml" ]; then
+    echo "Config not found: failure-recovery-$CFG.yaml"
+    exit 1
+  fi
+done
+
+for CFG in "${CONFIGS[@]}"; do
   echo
   echo "=== $CFG: start $(date '+%Y-%m-%d %H:%M') ==="
   PYTHONPATH="$FR" caffeinate -i uv run harbor run -p tasks "${TASKS[@]}" \

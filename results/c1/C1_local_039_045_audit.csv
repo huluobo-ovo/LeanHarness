@@ -1,5 +1,5 @@
 task_id,source_job,source_trial,reward,exception_info,started_at_utc,finished_at_utc,runtime_seconds,input_tokens,cache_tokens,output_tokens,harbor_cost_usd,trajectory_usage_cost_usd,paired_openrouter_usage_delta_usd
 039-manchester-forecast,jobs/C1-particle-missing-8/2026-10-30__16-54-33,039-manchester-forecast__Lq3Z6ms,1.0,,2026-10-30T08:54:34.625385Z,2026-10-30T08:59:13.407969Z,278.782584,97657,55808,4476,0.0,0.015105674,
 045-united-bag-fee-page,jobs/C1-particle-missing-8/2026-10-30__16-59-14,045-united-bag-fee-page__Ruay2Pm,1.0,,2026-10-30T08:59:15.607999Z,2026-10-30T09:02:21.976777Z,186.368778,146042,76032,4945,0.0,0.022675596,
-PAIR_TOTAL,,,,,,,,465.151362,243699,131840,9421,0.0,0.037781270,0.029876534
+PAIR_TOTAL,,,,,,,465.151362,243699,131840,9421,0.0,0.037781270,0.029876534
 

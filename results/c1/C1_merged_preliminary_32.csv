@@ -1,0 +1,42 @@
+canonical_index,task_id,result_source,run_status,reward,runtime_seconds,trajectory_usage_cost_usd,cost_limit_usd,artifact_reference,selection_note
+1,000-count-nuclei,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+2,003-rebuild-energy-model,collaborator_first20_19,completed_scored,0,890.242,0.06638203,0.10,source-zip:raw_results/04_003-rebuild-energy-model/result.json,canonical index <= 16
+3,006-extract-gym-auditorium,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+4,009-repair-org-chart-layout,collaborator_first20_19,completed_scored,0,2034.505,0.06497219,0.10,source-zip:raw_results/11_009-repair-org-chart-layout/result.json,canonical index <= 16
+5,012-hide-na-budget-values,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+6,015-gym-auditorium-sim,collaborator_first20_19,completed_scored,0.66,1349.335,0.047993264,0.10,source-zip:raw_results/18_015-gym-auditorium-sim/result.json,canonical index <= 16
+7,018-calculate-total-earnings,collaborator_first20_19,completed_scored,1,1356.985,0.00240362,0.10,source-zip:raw_results/07_018-calculate-total-earnings/result.json,canonical index <= 16
+8,021-fill-ramp-chart,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+9,024-wa-osm-to-idf,collaborator_first20_19,completed_scored,1,621.622,0.003824452,0.10,source-zip:raw_results/15_024-wa-osm-to-idf/result.json,canonical index <= 16
+10,027-add-dota-dlc-cart,collaborator_first20_19,completed_scored,1,1016.319,0.01908381,0.10,source-zip:raw_results/08_027-add-dota-dlc-cart/result.json,canonical index <= 16
+11,030-womens-nike-jerseys,collaborator_first20_19,completed_scored,0,957.635,0.038220168,0.10,source-zip:raw_results/17_030-womens-nike-jerseys/result.json,canonical index <= 16
+12,033-prostate-volume-est,collaborator_first20_19,completed_scored,0,1597.01,0.096881998,0.10,source-zip:raw_results/16_033-prostate-volume-est/result.json,canonical index <= 16
+13,036-license-eligibility,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+14,039-manchester-forecast,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+15,042-black-sale-coffee-makers,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+16,045-united-bag-fee-page,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+17,048-tamiflu-side-effects,local_c1,completed_scored,1,242.589736,0.00868486,0.10,jobs/C1-particle-17-25/2026-10-30__14-19-44/048-tamiflu-side-effects__idvdbjY,canonical index >= 17
+18,051-hide-left-dock,local_c1,completed_scored,1,410.974686,0.033434298,0.10,jobs/C1-particle-17-25/2026-10-30__14-19-44/051-hide-left-dock__xzLMnYz,canonical index >= 17
+19,054-prostate-label-obj,local_c1,completed_scored,0.5,675.533076,0.049369148,0.10,jobs/C1-particle-17-25/2026-10-30__14-19-44/054-prostate-label-obj__3RmgFF6,canonical index >= 17
+20,057-set-undo-steps-100,local_c1,completed_scored,1,114.820776,0.004449088,0.10,jobs/C1-particle-17-25/2026-10-30__14-19-44/057-set-undo-steps-100__RczoP5e,canonical index >= 17
+21,060-underline-red-text,local_c1,completed_scored,1,375.760135,0.009908436,0.10,jobs/C1-particle-17-25/2026-10-30__14-19-44/060-underline-red-text__bAphYrd,canonical index >= 17
+22,063-red-slide-numbers,local_c1,completed_scored,0,245.711588,0.012916642,0.10,jobs/C1-particle-17-25/2026-10-30__14-19-44/063-red-slide-numbers__KUvtWqi,canonical index >= 17
+23,066-set-slide-image-heights,local_c1,completed_scored,0,303.956621,0.060683664,0.10,jobs/C1-particle-17-25/2026-10-30__14-19-44/066-set-slide-image-heights__gTp86Es,canonical index >= 17
+24,069-linux-ls-tutorial,local_c1,completed_scored,0,524.404696,0.01709625,0.10,jobs/C1-particle-17-25/2026-10-30__14-19-44/069-linux-ls-tutorial__xxzBzcF,canonical index >= 17
+25,072-save-speedtest-results,local_c1,completed_scored,0,464.33014,0.004181706,0.10,jobs/C1-particle-17-25/2026-10-30__14-19-44/072-save-speedtest-results__iJyH4M8,canonical index >= 17
+26,075-nuclei-locations,local_c1,completed_scored,0,322.347337,0.028254828,0.10,jobs/C1-particle-task26-smoke-retry1/2026-10-30__12-40-00/075-nuclei-locations__MN4Aa7g,canonical index >= 17
+27,078-add-wednesday-lecture,local_c1,completed_scored,1,450.068624,0.018686686,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/078-add-wednesday-lecture__au6qZHc,canonical index >= 17
+28,081-video-frame-slide-bg,local_c1,completed_scored,0.8035433081070689,83.133224,0.028748866,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/081-video-frame-slide-bg__qufHSHw,canonical index >= 17
+29,084-plate-thermal-sim,local_c1,completed_scored,1,261.077065,0.16004374,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/084-plate-thermal-sim__ySBHHSa,canonical index >= 17
+30,087-spreadsheet-to-doc-table,local_c1,completed_scored,0,449.594093,0.050248226,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/087-spreadsheet-to-doc-table__KNGS7yf,canonical index >= 17
+31,090-ecs-grf-pass-rates,local_c1,completed_scored,0,461.804874,0.067765172,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/090-ecs-grf-pass-rates__jxSGPsC,canonical index >= 17
+32,093-merge-txt-document,local_c1,completed_scored,0,399.800439,0.008080528,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/093-merge-txt-document__gkZywHq,canonical index >= 17
+33,096-first-author-table,local_c1,completed_scored,0,410.942223,0.008687764,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/096-first-author-table__QwGx23e,canonical index >= 17
+34,099-professor-contact-info,local_c1,completed_scored,1,53.300008,0.006619386,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/099-professor-contact-info__NWDCcpb,canonical index >= 17
+35,102-daily-email-report,local_c1,completed_scored,0,68.13785,0.005282744,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/102-daily-email-report__q236myM,canonical index >= 17
+36,105-search-cell-b6,local_c1,completed_scored,0,70.221828,0.00529151,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/105-search-cell-b6__mWN3xtx,canonical index >= 17
+37,108-create-mail-folders,local_c1,completed_scored,1,340.796704,0.033530254,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/108-create-mail-folders__4EfvP6o,canonical index >= 17
+38,111-set-video-wallpaper,local_c1,completed_scored,0.28042116578541904,481.440228,0.013918482,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/111-set-video-wallpaper__BcBufCo,canonical index >= 17
+39,114-nuclei-csv-open,local_c1,completed_scored,1,142.831895,0.006187566,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/114-nuclei-csv-open__8BUqAMu,canonical index >= 17
+40,117-comma-text-to-table,local_c1,completed_scored,1,304.646256,0.074961976,0.10,jobs/C1-particle-27-40/2026-10-30__12-53-11/117-comma-text-to-table__h5VDQxW,canonical index >= 17
+

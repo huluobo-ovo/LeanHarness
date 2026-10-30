@@ -35,6 +35,12 @@ CONFIGS = {
         "rerun": RAW / "role4-main-infra-reruns" / "2026-10-28__08-29-58",
         "actual_batch_cost_usd": 1.0239,
     },
+    "R4-B": {
+        "label": "mandatory verification checklist only",
+        "original": RAW / "role4-b-only-40-formal" / "2026-10-30__01-40-18",
+        "rerun": None,
+        "actual_batch_cost_usd": 1.1326,
+    },
 }
 
 PILOTS = [
@@ -48,6 +54,7 @@ RAW_ARTIFACT_ROOTS = [
     CONFIGS["R4-A+B"]["rerun"],
     CONFIGS["R4-A"]["original"],
     CONFIGS["R4-A"]["rerun"],
+    CONFIGS["R4-B"]["original"],
     PILOTS[-1],
 ]
 
@@ -196,7 +203,7 @@ def main() -> None:
 
     for config_id, spec in CONFIGS.items():
         original = load_trials(spec["original"])
-        rerun = load_trials(spec["rerun"])
+        rerun = load_trials(spec["rerun"]) if spec["rerun"] else {}
         if set(original) != set(expected):
             raise ValueError(f"{config_id} original task set does not match the canonical list")
 
@@ -337,15 +344,41 @@ def main() -> None:
     comparison_rows: list[dict] = []
     for name in expected:
         full = reward(final_by_config["R4-A+B"][name][1])
-        selected = reward(final_by_config["R4-A"][name][1])
-        delta = float(selected) - float(full)
+        workflow_only = reward(final_by_config["R4-A"][name][1])
+        mandatory_only = reward(final_by_config["R4-B"][name][1])
+        workflow_delta = float(workflow_only) - float(full)
+        mandatory_delta = float(mandatory_only) - float(full)
+        component_delta = float(mandatory_only) - float(workflow_only)
         comparison_rows.append(
             {
                 "task_id": name,
                 "r4_a_plus_b_reward": full,
-                "r4_a_reward": selected,
-                "r4_a_minus_r4_a_plus_b": round(delta, 12),
-                "comparison": "R4-A better" if delta > 0 else "R4-A+B better" if delta < 0 else "equal",
+                "r4_a_reward": workflow_only,
+                "r4_b_reward": mandatory_only,
+                "r4_a_minus_r4_a_plus_b": round(workflow_delta, 12),
+                "r4_b_minus_r4_a_plus_b": round(mandatory_delta, 12),
+                "r4_b_minus_r4_a": round(component_delta, 12),
+                "r4_a_vs_r4_a_plus_b": (
+                    "R4-A better"
+                    if workflow_delta > 0
+                    else "R4-A+B better"
+                    if workflow_delta < 0
+                    else "equal"
+                ),
+                "r4_b_vs_r4_a_plus_b": (
+                    "R4-B better"
+                    if mandatory_delta > 0
+                    else "R4-A+B better"
+                    if mandatory_delta < 0
+                    else "equal"
+                ),
+                "r4_b_vs_r4_a": (
+                    "R4-B better"
+                    if component_delta > 0
+                    else "R4-A better"
+                    if component_delta < 0
+                    else "equal"
+                ),
             }
         )
 

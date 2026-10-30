@@ -11,10 +11,13 @@ the environment, implement, test, re-read the task, verify observable state,
 repair if necessary, and submit only after verification.  R4-A+B is the full
 design and adds a six-point mandatory verification block plus an explicit rule
 against inspecting the benchmark verifier, reference solution, or hidden
-evaluation files.
+evaluation files.  R4-B keeps the original six-step baseline workflow and adds
+only that mandatory block.
 
-The research question is whether that mandatory block adds value beyond the
-workflow alone.  The two YAML files differ only in that block.
+The research question is whether the workflow change and mandatory block add
+value separately or together.  R4-A and R4-A+B differ only in the mandatory
+block.  R4-B supports comparison with the shared original-workflow C0 once the
+C0 result table is available.
 
 ## Environment preparation
 
@@ -37,7 +40,7 @@ R4-A+B.
 The configuration files had the old names shown in the comments at execution
 time; they were subsequently renamed content-identically.  The following is
 the reproducible command using the new names.  Set `CONFIG` and `OUTPUT` to one
-of the two pairs below.
+of the three pairs below.
 
 ```bash
 HARNESS="$HOME/Desktop/LeanHarness"
@@ -51,14 +54,19 @@ OUTPUT="$HARNESS/results/raw/role4-main-40"
 # CONFIG="$HARNESS/configs/role4-workflow-only.yaml"
 # OUTPUT="$HARNESS/results/raw/role4-ablation-40"
 
+# R4-B ablation
+# CONFIG="$HARNESS/configs/role4-mandatory-only.yaml"
+# OUTPUT="$HARNESS/results/raw/role4-b-only-40-formal"
+
 task_args=()
 while IFS= read -r task; do
   [[ -z "$task" || "$task" == \#* ]] && continue
-  task_args+=(-p "$TUA/tasks/$task")
+  task_args+=(-i "$task")
 done < "$HARNESS/configs/task_list_40.txt"
 
 DOCKER_DEFAULT_PLATFORM=linux/amd64 caffeinate -i \
   uv --project "$TUA" run harbor run \
+  -p "$TUA/tasks" \
   "${task_args[@]}" \
   -a mini-swe-agent \
   -m openrouter/minimax/minimax-m3.1-flash \
@@ -85,8 +93,12 @@ pilot invocation used the same model and arguments as above, with one task,
 zero Harbor exceptions, and reward 0.  The zero reward is valid because the
 pilot was a chain-health check.
 
-R4-A did not receive a separate successful pre-formal pilot.  This is recorded
-as a protocol deviation rather than being reconstructed after the fact.
+R4-A and R4-B did not receive separate successful pre-formal pilots.  This is
+recorded as a protocol deviation rather than being reconstructed after the
+fact.  A mistaken R4-B invocation selected only the final task because it
+repeated the single-valued `-p` option; it was manually cancelled during Docker
+setup before agent execution.  It is excluded from the formal table and is not
+treated as a pilot.
 
 ## Formal and recovery artifacts
 
@@ -94,6 +106,7 @@ as a protocol deviation rather than being reconstructed after the fact.
 | --- | --- | --- |
 | R4-A+B | `results/raw/role4-main-40/2026-10-27__18-23-13` | `results/raw/role4-main-infra-reruns/2026-10-28__08-29-58` |
 | R4-A | `results/raw/role4-ablation-40/2026-10-29__01-25-13` | `results/raw/role4-ablation-infra-reruns/2026-10-29__08-07-08` |
+| R4-B | `results/raw/role4-b-only-40-formal/2026-10-30__01-40-18` | none required |
 
 R4-A+B infrastructure replacements:
 
@@ -130,6 +143,9 @@ from only the relevant list above and the corresponding replacement output
 directory.  No zero-reward, 30-step-limit, or 900-second agent-limit outcome
 was rerun.
 
+R4-B completed all 40 initial trials with no Harbor exceptions.  Its 18
+30-step-limit outcomes were retained and no task was rerun.
+
 ## Result construction and validation
 
 Run:
@@ -148,18 +164,21 @@ OpenRouter usage was recorded as USD 2.6178 before R4-A+B and USD 3.6417 after
 its formal run and infrastructure replacements, so its measured cost was USD
 1.0239 (USD 0.0256 per task when divided across the final 40-task table).
 OpenRouter usage was USD 4.8642 after R4-A and its infrastructure replacements,
-so R4-A's measured cost was USD 1.2225 (USD 0.0306 per task).  The combined
-Role 4 cost was USD 2.2464.  These account deltas are batch-level evidence; the
+so R4-A's measured cost was USD 1.2225 (USD 0.0306 per task).  Usage was USD
+5.9968 after R4-B, so R4-B's measured cost was USD 1.1326 (USD 0.0283 per
+task).  The preceding cancelled CLI attempt had no agent execution and no
+recorded model tokens.  The combined Role 4 cost was USD 3.3790.  These account
+deltas are batch-level evidence; the
 per-task `actual_openrouter_cost_usd` cells remain blank because OpenRouter did
 not provide an auditable task-level allocation and Harbor reported `0.0`.
 
 ## Known limitations
 
-1. The shared C0 table is not yet present, so only the internal R4-A versus
-   R4-A+B paired analysis is complete.
-2. R4-A lacks a successful pre-formal pilot.
+1. The shared C0 table is not yet present, so the planned C0 versus R4-B
+   mandatory-block comparison remains incomplete.
+2. R4-A and R4-B lack successful pre-formal pilots.
 3. R4-A trajectories contain six attempted `/logs/verifier` directory probes.
    No verifier files were exposed, but the attempts are documented in
-   `results/role4/compliance-audit.csv`; R4-A+B has no such probe.
+   `results/role4/compliance-audit.csv`; R4-A+B and R4-B have no such probe.
 4. Raw logs and trajectories are retained locally and hash-manifested, but are
    intentionally not committed under the repository's raw-artifact policy.

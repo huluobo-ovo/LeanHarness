@@ -1,41 +1,41 @@
-task_id,r4_a_plus_b_reward,r4_a_reward,r4_a_minus_r4_a_plus_b,comparison
-000-count-nuclei,0.0,0.0,0.0,equal
-003-rebuild-energy-model,0.0,0.0,0.0,equal
-006-extract-gym-auditorium,0.0,0.0,0.0,equal
-009-repair-org-chart-layout,0.0,0.0,0.0,equal
-012-hide-na-budget-values,0.0,0.0,0.0,equal
-015-gym-auditorium-sim,0.0,0.0,0.0,equal
-018-calculate-total-earnings,1.0,1.0,0.0,equal
-021-fill-ramp-chart,1.0,1.0,0.0,equal
-024-wa-osm-to-idf,0.66,1.0,0.34,R4-A better
-027-add-dota-dlc-cart,1.0,1.0,0.0,equal
-030-womens-nike-jerseys,0.0,0.0,0.0,equal
-033-prostate-volume-est,0.0,0.0,0.0,equal
-036-license-eligibility,1.0,1.0,0.0,equal
-039-manchester-forecast,1.0,1.0,0.0,equal
-042-black-sale-coffee-makers,0.0,0.0,0.0,equal
-045-united-bag-fee-page,0.0,1.0,1.0,R4-A better
-048-tamiflu-side-effects,1.0,1.0,0.0,equal
-051-hide-left-dock,0.0,1.0,1.0,R4-A better
-054-prostate-label-obj,1.0,1.0,0.0,equal
-057-set-undo-steps-100,1.0,0.0,-1.0,R4-A+B better
-060-underline-red-text,1.0,1.0,0.0,equal
-063-red-slide-numbers,1.0,1.0,0.0,equal
-066-set-slide-image-heights,0.0,0.0,0.0,equal
-069-linux-ls-tutorial,0.0,0.0,0.0,equal
-072-save-speedtest-results,0.0,0.0,0.0,equal
-075-nuclei-locations,0.0,0.0,0.0,equal
-078-add-wednesday-lecture,1.0,1.0,0.0,equal
-081-video-frame-slide-bg,0.8035433081070689,0.8035433081070689,0.0,equal
-084-plate-thermal-sim,0.0,0.0,0.0,equal
-087-spreadsheet-to-doc-table,0.0,1.0,1.0,R4-A better
-090-ecs-grf-pass-rates,0.0,0.0,0.0,equal
-093-merge-txt-document,0.0,0.0,0.0,equal
-096-first-author-table,1.0,1.0,0.0,equal
-099-professor-contact-info,1.0,0.0,-1.0,R4-A+B better
-102-daily-email-report,1.0,0.0,-1.0,R4-A+B better
-105-search-cell-b6,0.0,1.0,1.0,R4-A better
-108-create-mail-folders,0.0,0.0,0.0,equal
-111-set-video-wallpaper,0.0,0.2559574927074144,0.255957492707,R4-A better
-114-nuclei-csv-open,1.0,1.0,0.0,equal
-117-comma-text-to-table,0.0,1.0,1.0,R4-A better
+task_id,r4_a_plus_b_reward,r4_a_reward,r4_b_reward,r4_a_minus_r4_a_plus_b,r4_b_minus_r4_a_plus_b,r4_b_minus_r4_a,r4_a_vs_r4_a_plus_b,r4_b_vs_r4_a_plus_b,r4_b_vs_r4_a
+000-count-nuclei,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+003-rebuild-energy-model,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+006-extract-gym-auditorium,0.0,0.0,0.66,0.0,0.66,0.66,equal,R4-B better,R4-B better
+009-repair-org-chart-layout,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+012-hide-na-budget-values,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+015-gym-auditorium-sim,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+018-calculate-total-earnings,1.0,1.0,1.0,0.0,0.0,0.0,equal,equal,equal
+021-fill-ramp-chart,1.0,1.0,1.0,0.0,0.0,0.0,equal,equal,equal
+024-wa-osm-to-idf,0.66,1.0,1.0,0.34,0.34,0.0,R4-A better,R4-B better,equal
+027-add-dota-dlc-cart,1.0,1.0,1.0,0.0,0.0,0.0,equal,equal,equal
+030-womens-nike-jerseys,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+033-prostate-volume-est,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+036-license-eligibility,1.0,1.0,1.0,0.0,0.0,0.0,equal,equal,equal
+039-manchester-forecast,1.0,1.0,0.0,0.0,-1.0,-1.0,equal,R4-A+B better,R4-A better
+042-black-sale-coffee-makers,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+045-united-bag-fee-page,0.0,1.0,0.0,1.0,0.0,-1.0,R4-A better,equal,R4-A better
+048-tamiflu-side-effects,1.0,1.0,1.0,0.0,0.0,0.0,equal,equal,equal
+051-hide-left-dock,0.0,1.0,1.0,1.0,1.0,0.0,R4-A better,R4-B better,equal
+054-prostate-label-obj,1.0,1.0,0.5,0.0,-0.5,-0.5,equal,R4-A+B better,R4-A better
+057-set-undo-steps-100,1.0,0.0,1.0,-1.0,0.0,1.0,R4-A+B better,equal,R4-B better
+060-underline-red-text,1.0,1.0,1.0,0.0,0.0,0.0,equal,equal,equal
+063-red-slide-numbers,1.0,1.0,1.0,0.0,0.0,0.0,equal,equal,equal
+066-set-slide-image-heights,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+069-linux-ls-tutorial,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+072-save-speedtest-results,0.0,0.0,1.0,0.0,1.0,1.0,equal,R4-B better,R4-B better
+075-nuclei-locations,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+078-add-wednesday-lecture,1.0,1.0,1.0,0.0,0.0,0.0,equal,equal,equal
+081-video-frame-slide-bg,0.8035433081070689,0.8035433081070689,0.8035433081070689,0.0,0.0,0.0,equal,equal,equal
+084-plate-thermal-sim,0.0,0.0,1.0,0.0,1.0,1.0,equal,R4-B better,R4-B better
+087-spreadsheet-to-doc-table,0.0,1.0,0.0,1.0,0.0,-1.0,R4-A better,equal,R4-A better
+090-ecs-grf-pass-rates,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+093-merge-txt-document,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+096-first-author-table,1.0,1.0,1.0,0.0,0.0,0.0,equal,equal,equal
+099-professor-contact-info,1.0,0.0,1.0,-1.0,0.0,1.0,R4-A+B better,equal,R4-B better
+102-daily-email-report,1.0,0.0,1.0,-1.0,0.0,1.0,R4-A+B better,equal,R4-B better
+105-search-cell-b6,0.0,1.0,1.0,1.0,1.0,0.0,R4-A better,R4-B better,equal
+108-create-mail-folders,0.0,0.0,0.0,0.0,0.0,0.0,equal,equal,equal
+111-set-video-wallpaper,0.0,0.2559574927074144,0.29978274235937186,0.255957492707,0.299782742359,0.043825249652,R4-A better,R4-B better,R4-B better
+114-nuclei-csv-open,1.0,1.0,1.0,0.0,0.0,0.0,equal,equal,equal
+117-comma-text-to-table,0.0,1.0,1.0,1.0,1.0,0.0,R4-A better,R4-B better,equal

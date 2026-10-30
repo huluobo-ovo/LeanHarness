@@ -1,8 +1,8 @@
 # Role 4 GitHub Submission Memo
 
-The Role 4 GitHub package contains the two configurations, reproducibility and
+The Role 4 GitHub package contains the three configurations, reproducibility and
 analysis documentation, generated result tables, and the deterministic table
-builder.  It does not contain secrets or the ignored 102 MiB raw artifact tree.
+builder.  It does not contain secrets or the ignored 215 MiB raw artifact tree.
 
 ## Configurations
 
@@ -11,12 +11,17 @@ builder.  It does not contain secrets or the ignored 102 MiB raw artifact tree.
 - `configs/role4-workflow-only.yaml`: R4-A ablation; higher observed reward but
   retained as an ablation because six trajectories attempted empty verifier
   path probes.
+- `configs/role4-mandatory-only.yaml`: R4-B ablation; the original six-step
+  baseline workflow plus only the mandatory verification block.  It has the
+  highest observed reward of the three runs and no verifier-path probes, but no
+  separate successful pre-formal pilot.
 
 ## Results and audit evidence
 
-- `results/role4/formal-results.csv`: all 80 valid final task records.
-- `results/role4/summary.csv`: two configuration summaries.
-- `results/role4/paired-comparison.csv`: 40 paired reward comparisons.
+- `results/role4/formal-results.csv`: all 120 valid final task records.
+- `results/role4/summary.csv`: three configuration summaries.
+- `results/role4/paired-comparison.csv`: 40 paired reward comparisons across
+  R4-A+B, R4-A, and R4-B.
 - `results/role4/infrastructure-reruns.csv`: reasons and replacements for all
   20 permitted infrastructure reruns.
 - `results/role4/pilot-results.csv`: all three R4-A+B pilot attempts.

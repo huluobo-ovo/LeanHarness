@@ -172,16 +172,16 @@ def run_one(args: argparse.Namespace, task_id: str, root: Path) -> bool:
 def parse_args() -> argparse.Namespace:
     root = project_root()
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--configuration", choices=("T1", "T2", "T3"), required=True)
+    parser.add_argument("--configuration", choices=("T1", "T2", "T3", "C1"), required=True)
     parser.add_argument("--task", action="append", required=True, help="Task ID; repeat to run sequentially.")
-    parser.add_argument("--model", default="openrouter/minimax/minimax-m3.1-flash")
-    parser.add_argument("--cost-limit", type=float, default=0.06)
+    parser.add_argument("--model", default=None, help="OpenRouter model ID; required for C1.")
+    parser.add_argument("--cost-limit", type=float, default=None)
     parser.add_argument("--docker-platform", default="linux/amd64", help="Use empty string to preserve Docker default.")
     parser.add_argument("--uv", default="uv")
     parser.add_argument("--base-config", default="../../contributions/liu-yalin/developer_pack/settings/mini_base.yaml")
     parser.add_argument("--role5-config", default=None)
-    parser.add_argument("--output-root", default="runs/role5-formal")
-    parser.add_argument("--record-csv", default=str(root / "results" / "role5" / "formal-results.csv"))
+    parser.add_argument("--output-root", default=None)
+    parser.add_argument("--record-csv", default=None)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     if args.role5_config is None:
@@ -189,8 +189,19 @@ def parse_args() -> argparse.Namespace:
             "T1": "../../configs/tool-interface-normalizer.yaml",
             "T2": "../../configs/tool-interface-complete.yaml",
             "T3": "../../configs/tool-interface-command-guard.yaml",
+            "C1": "../../configs/c1-expensive-default.yaml",
         }
         args.role5_config = config_files[args.configuration]
+    if args.model is None:
+        if args.configuration == "C1":
+            parser.error("C1 requires --model openrouter/<team-approved-expensive-model>.")
+        args.model = "openrouter/minimax/minimax-m3.1-flash"
+    if args.cost_limit is None:
+        args.cost_limit = 0.10 if args.configuration == "C1" else 0.06
+    if args.output_root is None:
+        args.output_root = "runs/c1-formal" if args.configuration == "C1" else "runs/role5-formal"
+    if args.record_csv is None:
+        args.record_csv = str(root / "results" / ("c1" if args.configuration == "C1" else "role5") / ("c1-results.csv" if args.configuration == "C1" else "formal-results.csv"))
     return args
 
 

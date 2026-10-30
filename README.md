@@ -8,6 +8,10 @@ The current implementation uses mini-SWE-agent and runs TUA-Bench through Harbor
 - **T2 / Result Normalizer + Command Guard**: builds on T1 by checking and providing guidance for unsafe, repeated, or malformed commands.
 - **T3 / Command Guard**: enables Command Guard only, isolating the guard from Result Normalizer.
 
+The shared **C1** baseline is also ready: it keeps the default harness (both
+Role 5 switches off) and accepts the team-approved expensive OpenRouter model
+at run time. See the [C1 experiment guide](docs/c1-experiment-guide.md).
+
 For the detailed flow of “AI agent issues a command → tool layer processes it → environment returns a result,” see the [tool-interface map](docs/tool-interface-map.md) and [Harbor integration guide](docs/role5-harbor-integration.md).
 
 ## Shared Experimental Settings

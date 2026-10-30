@@ -15,6 +15,7 @@ Configs:
 
 - `failure-recovery-main.yaml`: detect + salvage
 - `failure-recovery-ablation.yaml`: detect only
+- `failure-recovery-salvage-only.yaml`: salvage only
 
 Motivation: in the C0 example run (000-count-nuclei) the agent used all 30 steps
 exploring and never wrote `/app/artifacts/nuclei_count.txt`, so it scored 0.
@@ -25,12 +26,19 @@ exploring and never wrote `/app/artifacts/nuclei_count.txt`, so it scored 0.
   logged in the trajectory under `info.failure_recovery`.
 - `failure_recovery_harbor.py`: Harbor agent that copies `fr_agent.py` into the
   container after the normal mini-swe-agent install.
+- `run_40.sh`: runs the 40-task set for one or more configs.
 - `export_rows.py`: converts a Harbor job folder into rows for the group sheet.
 - `tests/`: offline tests with a scripted model (no API key or Docker needed).
 
 ## Run
 
-From `vendor/TUA-Bench`, with `OPENROUTER_API_KEY` exported in the shell:
+All 40 tasks for one or more configs (main, ablation, salvage-only):
+
+```bash
+bash run_40.sh main ablation salvage-only
+```
+
+Single task, from `vendor/TUA-Bench`, with `OPENROUTER_API_KEY` exported in the shell:
 
 ```bash
 FR=~/pe6203/LeanHarness/contributions/yichen-tang/failure_recovery

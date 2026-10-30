@@ -39,6 +39,10 @@ separate actual-cost measurements. The collaborator sources lack one compatible
 whole-batch usage snapshot, so report the cost method and limitation alongside
 any C1 cost comparison.
 
+The exact raw audit fields for those two local tasks (timestamps, tokens,
+runtime, trajectory usage cost, and the paired OpenRouter usage delta) are in
+`C1_local_039_045_audit.csv`.
+
 ## Provenance
 
 - Collaborator archive SHA256:

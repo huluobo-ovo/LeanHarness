@@ -1,8 +1,9 @@
-# C1 merged preliminary results (32 of 40 tasks)
+# C1 merged results (40 of 40 tasks)
 
 ## Status
 
-This is a **preliminary, incomplete C1 merge**, not a final 40-task C1 result.
+This is a merged C1 40-task result record. Its cost evidence retains source
+limitations described below.
 The fixed configuration is `openrouter/particle-ai/particle-1`,
 mini-SWE-agent 2.4.3, default `mini_base.yaml` harness, 30 steps, 900
 seconds, and a USD 0.10 per-task cost-limit parameter.
@@ -12,35 +13,39 @@ seconds, and a USD 0.10 per-task cost-limit parameter.
 - Canonical indices 1–16: use the collaborator-supplied scored result when available.
 - Canonical indices 17–40: use the local later C1 Harbor result.
 
-This avoids silently mixing duplicate attempts. The two sources contain 11
-duplicated task IDs; non-selected attempts remain in their original archive or
-local job directory and are not treated as extra observations.
+The six formerly missing tasks (`000`, `006`, `012`, `021`, `036`, and `042`)
+come from the later collaborator current snapshot. The final two (`039` and
+`045`) come from the local dedicated missing-task run.
 
-## Coverage and provisional metrics
+This avoids silently mixing duplicate attempts. Non-selected duplicate attempts
+remain in their original archive or local job directory and are not treated as
+extra observations.
 
-- Available scored tasks: **32 / 40**.
-- Missing: `000-count-nuclei`, `006-extract-gym-auditorium`,
-  `012-hide-na-budget-values`, `021-fill-ramp-chart`,
-  `036-license-eligibility`, `039-manchester-forecast`,
-  `042-black-sale-coffee-makers`, and `045-united-bag-fee-page`.
-- Positive-reward tasks: **17 / 32 (53.125%)**. This is not a valid final
-  40-task success rate.
-- Full reward: 13; partial reward: 4; zero reward: 15.
-- Mean reward over available tasks: **0.476374**.
-- Mean runtime: **546.31 seconds**.
+## Coverage and result metrics
+
+- Available scored tasks: **40 / 40**.
+- Positive-reward tasks: **24 / 40 (60.0%)**.
+- Full reward: 19; partial reward: 5; zero reward: 16.
+- Mean reward: **0.547599**.
+- Mean runtime: **620.53 seconds**.
 
 `trajectory_usage_cost_usd` is the cost recorded in individual model
-trajectories. It totals **USD 1.05679335** for these 32 selected rows, but must
-not be presented as final C1 actual cost. The local 24-task portion has
-independently recorded OpenRouter batch-usage deltas of **USD 0.65472222**,
-whereas the collaborator archive has no compatible before/after batch snapshot.
-Complete the eight missing tasks and collect compatible usage evidence before
-reporting final C1 costs.
+trajectories. It totals **USD 1.31072142** for the 40 selected rows and has an
+average of **USD 0.03276804** per task. It is not identical to the OpenRouter
+usage-difference method. In particular, the two locally completed final tasks
+(`039` and `045`) have a combined OpenRouter usage delta of **USD 0.029876534**;
+their trajectory costs are kept per task for audit, not asserted as two
+separate actual-cost measurements. The collaborator sources lack one compatible
+whole-batch usage snapshot, so report the cost method and limitation alongside
+any C1 cost comparison.
 
 ## Provenance
 
 - Collaborator archive SHA256:
   `055daf7b63b613816bcbc4f0636e27168074e802b2308cee1f7869b3d0360fd6`.
+- Collaborator current snapshot supplied on 2026-10-30, SHA256
+  `d828c344049220396494b85e465298c6d96fb2b6db0644acfce2f6c1b507f43a`,
+  containing original artifacts for the six newly included tasks.
 - Local source artifacts (intentionally Git-ignored): `vendor/TUA-Bench/jobs/C1-particle-17-25/`,
   `vendor/TUA-Bench/jobs/C1-particle-task26-smoke-retry1/`, and
   `vendor/TUA-Bench/jobs/C1-particle-27-40/`.

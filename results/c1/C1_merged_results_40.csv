@@ -1,20 +1,20 @@
 canonical_index,task_id,result_source,run_status,reward,runtime_seconds,trajectory_usage_cost_usd,cost_limit_usd,artifact_reference,selection_note
-1,000-count-nuclei,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+1,000-count-nuclei,collaborator_current_snapshot,completed_scored,0,1010.568713,0.04975007,0.10,source-zip:raw_valid_results/000-count-nuclei/result.json,completed C1 record from current snapshot
 2,003-rebuild-energy-model,collaborator_first20_19,completed_scored,0,890.242,0.06638203,0.10,source-zip:raw_results/04_003-rebuild-energy-model/result.json,canonical index <= 16
-3,006-extract-gym-auditorium,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+3,006-extract-gym-auditorium,collaborator_current_snapshot,completed_scored,0.66,912.693212,0.047687348,0.10,source-zip:raw_valid_results/006-extract-gym-auditorium/result.json,completed C1 record from current snapshot
 4,009-repair-org-chart-layout,collaborator_first20_19,completed_scored,0,2034.505,0.06497219,0.10,source-zip:raw_results/11_009-repair-org-chart-layout/result.json,canonical index <= 16
-5,012-hide-na-budget-values,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+5,012-hide-na-budget-values,collaborator_current_snapshot,completed_scored,1,1102.569733,0.01657841,0.10,source-zip:raw_valid_results/012-hide-na-budget-values/result.json,completed C1 record from current snapshot
 6,015-gym-auditorium-sim,collaborator_first20_19,completed_scored,0.66,1349.335,0.047993264,0.10,source-zip:raw_results/18_015-gym-auditorium-sim/result.json,canonical index <= 16
 7,018-calculate-total-earnings,collaborator_first20_19,completed_scored,1,1356.985,0.00240362,0.10,source-zip:raw_results/07_018-calculate-total-earnings/result.json,canonical index <= 16
-8,021-fill-ramp-chart,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+8,021-fill-ramp-chart,collaborator_current_snapshot,completed_scored,1,745.715533,0.00699969,0.10,source-zip:raw_valid_results/021-fill-ramp-chart/result.json,completed C1 record from current snapshot
 9,024-wa-osm-to-idf,collaborator_first20_19,completed_scored,1,621.622,0.003824452,0.10,source-zip:raw_results/15_024-wa-osm-to-idf/result.json,canonical index <= 16
 10,027-add-dota-dlc-cart,collaborator_first20_19,completed_scored,1,1016.319,0.01908381,0.10,source-zip:raw_results/08_027-add-dota-dlc-cart/result.json,canonical index <= 16
 11,030-womens-nike-jerseys,collaborator_first20_19,completed_scored,0,957.635,0.038220168,0.10,source-zip:raw_results/17_030-womens-nike-jerseys/result.json,canonical index <= 16
 12,033-prostate-volume-est,collaborator_first20_19,completed_scored,0,1597.01,0.096881998,0.10,source-zip:raw_results/16_033-prostate-volume-est/result.json,canonical index <= 16
-13,036-license-eligibility,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
-14,039-manchester-forecast,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
-15,042-black-sale-coffee-makers,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
-16,045-united-bag-fee-page,missing,,,,,,,not present in supplied 19-result package or local C1 job artifacts
+13,036-license-eligibility,collaborator_current_snapshot,completed_scored,1,2033.051234,0.026192122,0.10,source-zip:raw_valid_results/036-license-eligibility/result.json,completed C1 record from current snapshot
+14,039-manchester-forecast,local_c1_missing_completion,completed_scored,1,278.782584,0.015105674,0.10,jobs/C1-particle-missing-8/2026-10-30__16-54-33/039-manchester-forecast__Lq3Z6ms,completed local C1 record; pair batch actual cost is documented in README
+15,042-black-sale-coffee-makers,collaborator_current_snapshot,completed_scored,1,1069.468855,0.06893916,0.10,source-zip:raw_valid_results/042-black-sale-coffee-makers/result.json,completed C1 record from current snapshot
+16,045-united-bag-fee-page,local_c1_missing_completion,completed_scored,1,186.368778,0.022675596,0.10,jobs/C1-particle-missing-8/2026-10-30__16-59-14/045-united-bag-fee-page__Ruay2Pm,completed local C1 record; pair batch actual cost is documented in README
 17,048-tamiflu-side-effects,local_c1,completed_scored,1,242.589736,0.00868486,0.10,jobs/C1-particle-17-25/2026-10-30__14-19-44/048-tamiflu-side-effects__idvdbjY,canonical index >= 17
 18,051-hide-left-dock,local_c1,completed_scored,1,410.974686,0.033434298,0.10,jobs/C1-particle-17-25/2026-10-30__14-19-44/051-hide-left-dock__xzLMnYz,canonical index >= 17
 19,054-prostate-label-obj,local_c1,completed_scored,0.5,675.533076,0.049369148,0.10,jobs/C1-particle-17-25/2026-10-30__14-19-44/054-prostate-label-obj__3RmgFF6,canonical index >= 17

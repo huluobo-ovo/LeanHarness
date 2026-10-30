@@ -26,7 +26,7 @@ summary.getRange("A3").format = { font: { italic: true, color: "#666666" }, wrap
 
 summary.getRange("A5:G5").values = [["Configuration", "Runs recorded", "Successful tasks", "Success rate", "Actual cost (USD)", "Cost per success (USD)", "Exceptions"]];
 summary.getRange("A5:G5").format = { fill: "#1F4E78", font: { bold: true, color: "#FFFFFF" }, horizontalAlignment: "center", verticalAlignment: "center" };
-summary.getRange("A6:A8").values = [["C0"], ["T1"], ["T2"]];
+summary.getRange("A6:A8").values = [["C0"], ["R5-A"], ["R5-A+B"]];
 for (let row = 6; row <= 8; row++) {
   summary.getRange(`B${row}`).formulas = [[`=COUNTIF('Results log'!$B$7:$B$206,A${row})`]];
   summary.getRange(`C${row}`).formulas = [[`=COUNTIFS('Results log'!$B$7:$B$206,A${row},'Results log'!$H$7:$H$206,1)`]];
@@ -43,8 +43,8 @@ summary.getRange("A11:H11").merge();
 summary.getRange("A11").values = [["Role 5 decision rules"]];
 summary.getRange("A11").format = { fill: "#D9EAF7", font: { bold: true, color: "#1F1F1F" } };
 summary.getRange("A12:H15").values = [
-  ["1", "Compare T1 with C0", "Does clearer result feedback improve success, lower cost, or reduce wasted tool actions?", "", "", "", "", ""],
-  ["2", "Compare T2 with T1", "This isolates the additional effect of the Command Guard.", "", "", "", "", ""],
+  ["1", "Compare R5-A with C0", "Does clearer result feedback improve success, lower cost, or reduce wasted tool actions?", "", "", "", "", ""],
+  ["2", "Compare R5-A+B with R5-A", "This isolates the additional effect of the Command Guard.", "", "", "", "", ""],
   ["3", "Actual cost", "Use the OpenRouter usage-difference value if Harbor reports 0.0.", "", "", "", "", ""],
   ["4", "Keep all outcomes", "Only documented infrastructure failures may be rerun.", "", "", "", "", ""],
 ];
@@ -70,14 +70,14 @@ log.getRange("J7:J206").format.numberFormat = Array.from({ length: 200 }, () => 
 log.getRange("K7:L206").format.numberFormat = Array.from({ length: 200 }, () => ["#,##0", "#,##0"]);
 log.getRange("M7:N206").format.numberFormat = Array.from({ length: 200 }, () => ["$0.0000", "$0.0000"]);
 log.getRange("O7:U206").format.numberFormat = Array.from({ length: 200 }, () => ["#,##0", "#,##0", "#,##0", "#,##0", "#,##0", "#,##0", "#,##0"]);
-log.getRange("B7:B206").dataValidation = { rule: { type: "list", values: ["C0", "T1", "T2"] } };
+log.getRange("B7:B206").dataValidation = { rule: { type: "list", values: ["C0", "R5-A", "R5-A+B"] } };
 log.getRange("G7:G206").dataValidation = { rule: { type: "list", values: ["completed", "timeout", "infrastructure_failure", "not_run"] } };
 log.getRange("I7:I206").dataValidation = { rule: { type: "list", values: ["YES", "NO"] } };
 
 lists.getRange("A1:C1").values = [["Field", "Allowed values / interpretation", "Source"]];
 lists.getRange("A1:C1").format = { fill: "#1F4E78", font: { bold: true, color: "#FFFFFF" } };
 lists.getRange("A2:C8").values = [
-  ["Configuration", "C0, T1, T2", "Shared benchmark design"],
+  ["Configuration", "C0, R5-A, R5-A+B", "Shared benchmark design"],
   ["Run status", "completed, timeout, infrastructure_failure, not_run", "Harbor/job logs"],
   ["Exception?", "YES or NO", "Harbor summary"],
   ["Reward", "Official verifier result; do not alter", "Harbor verifier output"],

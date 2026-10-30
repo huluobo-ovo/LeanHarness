@@ -1,4 +1,4 @@
-# Role 5 T1/T2/T3 experiment guide
+# Role 5 R5-A/R5-A+B/R5-B experiment guide
 
 **Owner:** Role 5  
 **Status:** Candidate configurations ready; real Harbor adapter integration still required
@@ -8,9 +8,9 @@
 | ID | Guard | Result normalizer | Question being tested |
 | --- | --- | --- | --- |
 | C0 | Off | Off | Shared default-harness baseline, run by Role 1. |
-| T1 | Off | On | Does concise, structured command feedback improve success or reduce wasted turns? |
-| T2 | On | On | Does also rejecting clearly malformed commands improve the cost-success trade-off? |
-| T3 | On | Off | Does Command Guard alone improve the cost-success trade-off? |
+| R5-A | Off | On | Does concise, structured command feedback improve success or reduce wasted turns? |
+| R5-A+B | On | On | Does also rejecting clearly malformed commands improve the cost-success trade-off? |
+| R5-B | On | Off | Does Command Guard alone improve the cost-success trade-off? |
 
 The three Role 5 configurations differ only in `guard_enabled` and
 `normalizer_enabled`. They use the same
@@ -20,9 +20,9 @@ tool-interface intervention instead of a different model, budget, or task set.
 
 ## Files to use
 
-- `configs/tool-interface-normalizer.yaml`: T1, result normalizer only.
-- `configs/tool-interface-complete.yaml`: T2, command guard plus normalizer.
-- `configs/tool-interface-command-guard.yaml`: T3, command guard only.
+- `configs/tool-interface-normalizer.yaml`: R5-A, result normalizer only.
+- `configs/tool-interface-complete.yaml`: R5-A+B, command guard plus normalizer.
+- `configs/tool-interface-command-guard.yaml`: R5-B, command guard only.
 - `configs/task_list_40.txt`: canonical fixed evaluation set.
 - `contributions/liu-yalin/developer_pack/settings/mini_base.yaml`: shared
   mini-SWE-agent base configuration submitted by Liu Yalin.
@@ -50,7 +50,7 @@ key and do not contact OpenRouter.
 ## One-task smoke run protocol
 
 Before the 40-task batch, run exactly one agreed development task through the
-shared adapter with T1, T2, or T3. Keep the exact command in the experiment
+shared adapter with R5-A, R5-A+B, or R5-B. Keep the exact command in the experiment
 log after Role 1 finalizes the adapter command. A valid smoke run requires:
 
 - Harbor reports `Exceptions = 0`;
@@ -63,7 +63,7 @@ Do not start a 40-task paid batch until the smoke run meets all four checks.
 
 ## Formal 40-task run protocol
 
-Run T1, T2, and T3 once each after the team locks the model and adapter revision.
+Run R5-A, R5-A+B, and R5-B once each after the team locks the model and adapter revision.
 Normal failure, zero reward, timeout, and non-zero task results are evidence;
 do not delete or rerun them. Only an infrastructure failure may be rerun, with
 the reason recorded. Retain output under the per-configuration `run_root` in
@@ -72,7 +72,7 @@ runtime, input/output tokens, and actual OpenRouter cost.
 
 ## Interpretation rule
 
-T1 answers whether clearer feedback helps. T3 answers whether the Command
-Guard helps alone. Comparing T2 with T1 isolates the incremental effect of the
-Command Guard, while comparing T2 with T3 isolates the incremental effect of
+R5-A answers whether clearer feedback helps. R5-B answers whether the Command
+Guard helps alone. Comparing R5-A+B with R5-A isolates the incremental effect of the
+Command Guard, while comparing R5-A+B with R5-B isolates the incremental effect of
 the Result Normalizer. Compare each variant with C0 as the default harness.

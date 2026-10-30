@@ -9,12 +9,12 @@ a permanent manual edit to `.venv/site-packages`.
 
 The patch makes Harbor's installed `mini_swe_agent.py` accept one additional
 agent kwarg: `role5_config_file`. When supplied, it reads only
-`leanharness.tool_interface` from the selected T1 or T2 YAML, creates a private
+`leanharness.tool_interface` from the selected R5-A or R5-A+B YAML, creates a private
 in-container copy of `mini_base.yaml`, installs the repository-versioned
 `adapters/role5_runtime_agent.py` overlay, then starts mini-SWE-agent normally.
 
-The overlay subclasses the default agent. T1 normalizes each `env.execute`
-result; T2 also intercepts malformed actions before that call. It preserves
+The overlay subclasses the default agent. R5-A normalizes each `env.execute`
+result; R5-A+B also intercepts malformed actions before that call. It preserves
 the standard action, output, return code, exception, and `tool_call_id`
 contracts, so Harbor trajectory conversion and the official verifier remain
 unchanged.
@@ -23,7 +23,7 @@ The patch also applies the shared Harbor compatibility fix from Liu Yalin's
 developer pack: it installs mini-SWE-agent with `litellm[proxy]`, which supplies
 the MCP dependency needed by the OpenRouter/LiteLLM stack. This is an
 environment fix, not a Role 5 harness intervention, and must stay identical
-for C0, T1, and T2.
+for C0, R5-A, and R5-A+B.
 
 ## Compatibility contract
 
@@ -67,7 +67,7 @@ script and runtime overlay are the reproducible artifact.
 After applying the patch and configuring a local API key, run exactly one task
 before any batch. Only the Role 5 YAML differs between commands.
 
-### T1 — Result Normalizer only
+### R5-A — Result Normalizer only
 
 ```bash
 uv run harbor run -p tasks/000-count-nuclei -a mini-swe-agent \
@@ -78,7 +78,7 @@ uv run harbor run -p tasks/000-count-nuclei -a mini-swe-agent \
   --agent-kwarg cost_limit=0.06 -o jobs/role5-t1-smoke --yes
 ```
 
-### T2 — Command Guard plus Result Normalizer
+### R5-A+B — Command Guard plus Result Normalizer
 
 ```bash
 uv run harbor run -p tasks/000-count-nuclei -a mini-swe-agent \
@@ -92,4 +92,4 @@ uv run harbor run -p tasks/000-count-nuclei -a mini-swe-agent \
 Before accepting either smoke run, check that Harbor reports `Exceptions = 0`
 and that the native mini-SWE-agent trajectory contains `leanharness_category`,
 `leanharness_summary`, and `leanharness_next_step` in tool-result `extra`
-fields. A T2 guarded request also contains `leanharness_guarded: true`.
+fields. A R5-A+B guarded request also contains `leanharness_guarded: true`.

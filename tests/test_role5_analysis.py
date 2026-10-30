@@ -28,13 +28,13 @@ def test_summary_uses_preregistered_definitions():
     output = summarize(
         [
             row("C0", reward="1"),
-            row("T1", reward="0"),
-            row("T2", reward="1", guarded_actions="2", file_not_found="0", command_not_found="0"),
-            row("T3"),
+            row("R5-A", reward="0"),
+            row("R5-A+B", reward="1", guarded_actions="2", file_not_found="0", command_not_found="0"),
+            row("R5-B"),
         ]
     )
     by_config = {item["configuration"]: item for item in output}
-    c0, t1, t2 = by_config["C0"], by_config["T1"], by_config["T2"]
+    c0, t1, t2 = by_config["C0"], by_config["R5-A"], by_config["R5-A+B"]
 
     assert c0["success_rate"] == 1
     assert c0["mean_actual_cost_per_task_usd"] == 0.06
@@ -46,7 +46,7 @@ def test_summary_uses_preregistered_definitions():
 
 
 def test_infrastructure_failure_is_recorded_but_excluded():
-    output = summarize([row("C0", run_status="infrastructure_failure"), row("T1"), row("T2"), row("T3")])
+    output = summarize([row("C0", run_status="infrastructure_failure"), row("R5-A"), row("R5-A+B"), row("R5-B")])
 
     assert output[0]["rows_recorded"] == 1
     assert output[0]["evaluable_tasks"] == 0
@@ -64,9 +64,9 @@ def test_blank_failure_counts_are_zero():
                 timeout_or_exception="",
                 other_failures="",
             ),
-            row("T1"),
-            row("T2"),
-            row("T3"),
+            row("R5-A"),
+            row("R5-A+B"),
+            row("R5-B"),
         ]
     )
 
@@ -79,9 +79,9 @@ def test_latest_valid_attempt_is_used_for_a_documented_rerun():
         [
             row("C0", task_id="054-prostate-label-obj", reward="0", actual_openrouter_cost_usd="0.99"),
             row("C0", task_id="054-prostate-label-obj", reward="1", actual_openrouter_cost_usd="0.05"),
-            row("T1"),
-            row("T2"),
-            row("T3"),
+            row("R5-A"),
+            row("R5-A+B"),
+            row("R5-B"),
         ]
     )
 
@@ -98,9 +98,9 @@ def test_infrastructure_failure_never_replaces_a_valid_result():
         [
             row("C0", task_id="033-prostate-volume-est", reward="1"),
             row("C0", task_id="033-prostate-volume-est", run_status="infrastructure_failure", exception="YES"),
-            row("T1"),
-            row("T2"),
-            row("T3"),
+            row("R5-A"),
+            row("R5-A+B"),
+            row("R5-B"),
         ]
     )
 

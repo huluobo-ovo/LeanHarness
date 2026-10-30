@@ -1,4 +1,4 @@
-# Role 5 candidate configuration: T2 (command guard + result normalizer).
+# Role 5 candidate configuration: R5-A+B (command guard + result normalizer).
 #
 # This is LeanHarness adapter metadata. It becomes executable once the shared
 # Harbor/mini-SWE-agent adapter reads the `leanharness` block. Do not run this

@@ -6,7 +6,7 @@ CSV under `results/role5/`. Record one row for every task and configuration.
 
 ## Required fields
 
-- **Configuration:** `C0`, `T1`, or `T2`.
+- **Configuration:** `C0`, `R5-A`, or `R5-A+B`.
 - **Task ID, model, agent version, adapter commit:** identifies precisely what
   was run.
 - **Reward and exception:** copy the official Harbor/verifier outcome exactly.
@@ -14,12 +14,12 @@ CSV under `results/role5/`. Record one row for every task and configuration.
 - **Actual OpenRouter cost:** calculate from cumulative usage immediately
   before and after the run. Harbor may display `0.0` for this provider.
 - **Tool/failure counts:** obtain from the saved mini-SWE-agent trajectory.
-  For T2, `guarded_actions` counts results with `leanharness_guarded: true`.
+  For R5-A+B, `guarded_actions` counts results with `leanharness_guarded: true`.
 - **Trajectory and Harbor output paths:** keep evidence auditable.
 
 ## Metrics for the report
 
-Calculate results separately for C0, T1, and T2:
+Calculate results separately for C0, R5-A, and R5-A+B:
 
 | Metric | Formula | Role 5 interpretation |
 | --- | --- | --- |

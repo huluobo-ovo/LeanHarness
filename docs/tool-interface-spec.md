@@ -210,10 +210,10 @@ The v1 plan fits the project limit of at most three configurations per individua
 | Config ID | Guard | Normalizer | Purpose |
 | --- | ---:| ---:| --- |
 | C0 | Off | Off | Shared default-harness baseline, run by Role 1. |
-| T1 | Off | On | Isolate whether clearer error feedback changes success/cost. |
-| T2 | On | On | Test the complete Role 5 v1. |
+| R5-A | Off | On | Isolate whether clearer error feedback changes success/cost. |
+| R5-A+B | On | On | Test the complete Role 5 v1. |
 
-All configurations must use the same base model, task list, seed policy, step limit, wall-time limit, cost cap, Harbor adapter, and official verifier. T1/T2 results must record the LeanHarness code commit and configuration file.
+All configurations must use the same base model, task list, seed policy, step limit, wall-time limit, cost cap, Harbor adapter, and official verifier. R5-A/R5-A+B results must record the LeanHarness code commit and configuration file.
 
 ## 8. Acceptance checks before paid benchmark runs
 

@@ -172,7 +172,7 @@ def run_one(args: argparse.Namespace, task_id: str, root: Path) -> bool:
 def parse_args() -> argparse.Namespace:
     root = project_root()
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--configuration", choices=("T1", "T2", "T3"), required=True)
+    parser.add_argument("--configuration", choices=("R5-A", "R5-A+B", "R5-B"), required=True)
     parser.add_argument("--task", action="append", required=True, help="Task ID; repeat to run sequentially.")
     parser.add_argument("--model", default="openrouter/minimax/minimax-m3.1-flash")
     parser.add_argument("--cost-limit", type=float, default=0.06)
@@ -186,9 +186,9 @@ def parse_args() -> argparse.Namespace:
     args = parser.parse_args()
     if args.role5_config is None:
         config_files = {
-            "T1": "../../configs/tool-interface-normalizer.yaml",
-            "T2": "../../configs/tool-interface-complete.yaml",
-            "T3": "../../configs/tool-interface-command-guard.yaml",
+            "R5-A": "../../configs/tool-interface-normalizer.yaml",
+            "R5-A+B": "../../configs/tool-interface-complete.yaml",
+            "R5-B": "../../configs/tool-interface-command-guard.yaml",
         }
         args.role5_config = config_files[args.configuration]
     return args

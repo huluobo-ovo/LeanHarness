@@ -1,8 +1,8 @@
-# Role 5 ablation configuration: T3 (command guard only).
+# Role 5 ablation configuration: R5-B (command guard only).
 #
 # This isolates the pre-execution command guard from the Result Normalizer.
 # It must use the same task list, model, budget, step limit, and time limit as
-# C0, T1, and T2.
+# C0, R5-A, and R5-A+B.
 experiment:
   id: role5-t3-command-guard-v1
   owner: role-5

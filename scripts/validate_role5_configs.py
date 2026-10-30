@@ -1,4 +1,4 @@
-"""Validate the fixed invariants of Role 5's T1/T2/T3 experiment metadata."""
+"""Validate the fixed invariants of Role 5's R5-A/R5-A+B/R5-B experiment metadata."""
 
 from __future__ import annotations
 
@@ -7,9 +7,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIGS = {
-    "T1": ROOT / "configs" / "tool-interface-normalizer.yaml",
-    "T2": ROOT / "configs" / "tool-interface-complete.yaml",
-    "T3": ROOT / "configs" / "tool-interface-command-guard.yaml",
+    "R5-A": ROOT / "configs" / "tool-interface-normalizer.yaml",
+    "R5-A+B": ROOT / "configs" / "tool-interface-complete.yaml",
+    "R5-B": ROOT / "configs" / "tool-interface-command-guard.yaml",
 }
 EXPECTED_SHARED = {
     "task_list: configs/task_list_40.txt",
@@ -42,13 +42,13 @@ def main() -> None:
         missing = EXPECTED_SHARED - values
         assert not missing, f"{name} is missing shared fields: {sorted(missing)}"
 
-    assert "guard_enabled: false" in lines["T1"], "T1 must isolate the normalizer"
-    assert "normalizer_enabled: true" in lines["T1"], "T1 must enable the normalizer"
-    assert "guard_enabled: true" in lines["T2"], "T2 must enable the complete interface"
-    assert "normalizer_enabled: true" in lines["T2"], "T2 must enable the normalizer"
-    assert "guard_enabled: true" in lines["T3"], "T3 must enable the guard"
-    assert "normalizer_enabled: false" in lines["T3"], "T3 must isolate the guard"
-    print("Role 5 T1/T2/T3 configuration invariants: OK")
+    assert "guard_enabled: false" in lines["R5-A"], "R5-A must isolate the normalizer"
+    assert "normalizer_enabled: true" in lines["R5-A"], "R5-A must enable the normalizer"
+    assert "guard_enabled: true" in lines["R5-A+B"], "R5-A+B must enable the complete interface"
+    assert "normalizer_enabled: true" in lines["R5-A+B"], "R5-A+B must enable the normalizer"
+    assert "guard_enabled: true" in lines["R5-B"], "R5-B must enable the guard"
+    assert "normalizer_enabled: false" in lines["R5-B"], "R5-B must isolate the guard"
+    print("Role 5 R5-A/R5-A+B/R5-B configuration invariants: OK")
 
 
 if __name__ == "__main__":

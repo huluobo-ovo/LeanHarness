@@ -1,0 +1,10 @@
+[
+  {
+    "task_id": "039-manchester-forecast",
+    "status": "infrastructure_failure",
+    "reward": "",
+    "cost_status": "missing_or_ambiguous_trajectory",
+    "agent_usd": "",
+    "trial_path": "runs/context-formal/formal/A/039-manchester-forecast/039-manchester-forecast--context-a--20261029-224916-396856"
+  }
+]

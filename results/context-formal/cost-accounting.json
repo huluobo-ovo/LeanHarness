@@ -1,0 +1,13 @@
+{
+  "cost_source": "native trajectory response.usage.cost",
+  "A_final40_usd": "0.88604136",
+  "B_final40_usd": "1.301179545",
+  "B_known_extra_old066_usd": "0.05411265",
+  "B_known_including_old066_usd": "1.355292195",
+  "scope_warning": "known response costs, not a complete provider invoice; infrastructure retries without response costs remain unknown, never zero-filled",
+  "harness_extra_llm_calls": 0,
+  "harness_cpu_overhead": "not separately measured",
+  "budget": "0.06 is a parameter and post-trial audit; no guaranteed in-call hard cutoff",
+  "C0_warning": "shared C0 cost uses key/account usage delta including retries; different scope, reconcile before cost/Pareto claims",
+  "submission_scope": "Two independent single-change candidates A and B; select one final method; agreed with team"
+}

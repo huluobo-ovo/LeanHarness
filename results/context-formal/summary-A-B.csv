@@ -1,0 +1,3 @@
+configuration,model,task_count,completed,reward_sum,mean_reward,mean_reward_percent,full_reward_count,full_reward_rate,partial_reward_count,zero_reward_count,agent_usd_final40,harness_llm_usd_final40,harness_llm_tokens_final40,input_tokens,output_tokens,cached_input_tokens,overbudget_count,step_limit,agent_time_limit_s,cost_parameter_usd,repetitions,raw_attempt_count
+A,openrouter/minimax/minimax-m3.1-flash,40,40,18.1537552288664110,0.453843880721660275,45.384388072166027500,17,0.425,2,21,0.88604136,0,0,18783722,721627,17514764,1,30,900,.06,1,67
+B,openrouter/minimax/minimax-m3.1-flash,40,40,19.1046237393288031,0.4776155934832200775,47.7615593483220077500,18,0.45,2,20,1.301179545,0,0,20624974,843019,17014505,4,30,900,.06,1,49

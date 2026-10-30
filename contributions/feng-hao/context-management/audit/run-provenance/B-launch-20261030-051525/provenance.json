@@ -1,0 +1,15 @@
+{
+  "started_at": "2026-10-30T05:15:25.482237+08:00",
+  "configuration": "B",
+  "model": "openrouter/minimax/minimax-m3.1-flash",
+  "code_sha256": "d377288f33dc001fe9a7c957714bc1f818702bee860ce26a7a1f49de05b3a10e",
+  "base_config_sha256": "548892837b4c31b9af3d3eeebf6ee694500f234d7638d37c474c9603d47bed05",
+  "variant_config_sha256": "5571c1a91c2883b90a071b8099fa00bd213e60b5d8209b4f6c6cd56557cff000",
+  "task_list_sha256": "72b92b5a5d04f384feb1ad4e7ec83a69e9d2bd49d97a4fdf222e7d3f7ba9b6d5",
+  "cost_parameter_usd": 0.06,
+  "repair_shim_sha256": "70b9eb52c685ee04b667693089daeac3101f1cc6063adc4f40fa9375e7b88faa",
+  "uv_binary_sha256": "04e7399b45054f5ae4239ed60cd579311daafdd8d43e0e6ac01003436f19eaac",
+  "policy": "one authorized repair attempt for six preserved pre-model infrastructure failures; completed including zero skipped; new failures retained without further retries",
+  "infrastructure": "v2 early CA+HTTPS bootstrap and cached tool/mirror/proxy preparation; original tasks/verifiers and model/decoding/step/time settings preserved",
+  "cost_limit_note": "Existing harness passes 0.06; internal accounting may not enforce a hard stop. Actual response costs are audited after each task; over-budget result is retained and flagged, then queue continues. This is a post-trial audit, not a hard in-call cutoff."
+}

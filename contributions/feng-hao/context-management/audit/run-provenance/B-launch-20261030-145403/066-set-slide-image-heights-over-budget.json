@@ -1,0 +1,8 @@
+{
+  "task": "066-set-slide-image-heights",
+  "run_id": "066-set-slide-image-heights--context-b--20261030-145403-505871",
+  "actual_agent_usd": "0.08196102",
+  "parameter_limit_usd": 0.06,
+  "action": "retained_without_retry_continue_next",
+  "hard_cutoff": false
+}

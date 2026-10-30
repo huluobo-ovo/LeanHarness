@@ -1,0 +1,37 @@
+{
+  "services": {
+    "main": {
+      "build": {
+        "args": {
+          "http_proxy": "http://host.docker.internal:9674",
+          "https_proxy": "http://host.docker.internal:9674",
+          "HTTP_PROXY": "http://host.docker.internal:9674",
+          "HTTPS_PROXY": "http://host.docker.internal:9674",
+          "NO_PROXY": "localhost,127.0.0.1,::1",
+          "no_proxy": "localhost,127.0.0.1,::1"
+        }
+      },
+      "environment": {
+        "http_proxy": "http://host.docker.internal:9674",
+        "https_proxy": "http://host.docker.internal:9674",
+        "HTTP_PROXY": "http://host.docker.internal:9674",
+        "HTTPS_PROXY": "http://host.docker.internal:9674",
+        "NO_PROXY": "localhost,127.0.0.1,::1",
+        "no_proxy": "localhost,127.0.0.1,::1"
+      },
+      "volumes": [
+        {
+          "type": "bind",
+          "source": "local-workspace/work/repair_a/assets/uv",
+          "target": "/tmp/pe6203-uv-binary",
+          "read_only": true
+        },
+        {
+          "type": "bind",
+          "source": "local-workspace/work/repair_a/assets/uv-cache",
+          "target": "/tmp/pe6203-uv-cache"
+        }
+      ]
+    }
+  }
+}

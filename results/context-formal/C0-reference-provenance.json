@@ -1,0 +1,8 @@
+{
+  "source": "teammate supplied PE6203_C0_new_files_20261029-210239(1).zip",
+  "received_summary": "outputs/C0_\u6536\u5230\u7684\u57fa\u7ebf/c0_summary.json",
+  "task_count": 40,
+  "baseline_author": "shared team baseline, not this member",
+  "per_task_actual_cost": "unavailable",
+  "mean_reward": "0.48030660924153656"
+}

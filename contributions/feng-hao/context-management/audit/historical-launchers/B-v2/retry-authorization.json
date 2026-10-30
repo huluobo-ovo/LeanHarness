@@ -1,0 +1,12 @@
+{
+  "authorized_at": "2026-10-30",
+  "user_instruction": "Start from B task 003, the second task; retry the previously failed environment setups once, and retain valid reward-zero results.",
+  "tasks": [
+    "003-rebuild-energy-model",
+    "006-extract-gym-auditorium",
+    "009-repair-org-chart-layout",
+    "012-hide-na-budget-values",
+    "015-gym-auditorium-sim",
+    "018-calculate-total-earnings"
+  ]
+}

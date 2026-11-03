@@ -1,0 +1,16 @@
+[
+  {
+    "run_id": "066-set-slide-image-heights--context-b--20261030-080116-776818",
+    "trajectory": "/Users/haohao/Downloads/03work-fh/runs/context-formal/formal/B/066-set-slide-image-heights/066-set-slide-image-heights--context-b--20261030-080116-776818/agent/mini-swe-agent.trajectory.json",
+    "steps": 30,
+    "termination_reason": "LimitsExceeded",
+    "cost_status": "complete",
+    "agent_tokens_in": 671503,
+    "agent_tokens_out": 29448,
+    "agent_cached_tokens": 476160,
+    "harness_tokens_in": 0,
+    "harness_tokens_out": 0,
+    "agent_usd": 0.05411265,
+    "harness_usd": 0.0
+  }
+]

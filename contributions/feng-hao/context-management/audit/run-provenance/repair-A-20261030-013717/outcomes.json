@@ -1,0 +1,34 @@
+[
+  {
+    "task_id": "075-nuclei-locations",
+    "status": "completed",
+    "reward": "0.0",
+    "cost_status": "complete",
+    "agent_usd": "0.01773351",
+    "trial_path": "runs/context-formal/formal/A/075-nuclei-locations/075-nuclei-locations--context-a--20261030-013717-933030"
+  },
+  {
+    "task_id": "078-add-wednesday-lecture",
+    "status": "completed",
+    "reward": "1.0",
+    "cost_status": "complete",
+    "agent_usd": "0.02297595",
+    "trial_path": "runs/context-formal/formal/A/078-add-wednesday-lecture/078-add-wednesday-lecture--context-a--20261030-014623-497004"
+  },
+  {
+    "task_id": "081-video-frame-slide-bg",
+    "status": "completed",
+    "reward": "0.8035433081070689",
+    "cost_status": "complete",
+    "agent_usd": "0.00959619",
+    "trial_path": "runs/context-formal/formal/A/081-video-frame-slide-bg/081-video-frame-slide-bg--context-a--20261030-020707-820093"
+  },
+  {
+    "task_id": "084-plate-thermal-sim",
+    "status": "infrastructure_failure",
+    "reward": "",
+    "cost_status": "missing_or_ambiguous_trajectory",
+    "agent_usd": "",
+    "trial_path": "runs/context-formal/formal/A/084-plate-thermal-sim/084-plate-thermal-sim--context-a--20261030-020903-814316"
+  }
+]

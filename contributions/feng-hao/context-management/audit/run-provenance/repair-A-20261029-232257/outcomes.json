@@ -1,0 +1,66 @@
+[
+  {
+    "task_id": "039-manchester-forecast",
+    "status": "completed",
+    "reward": "1.0",
+    "cost_status": "complete",
+    "agent_usd": "0.01213743",
+    "trial_path": "runs/context-formal/formal/A/039-manchester-forecast/039-manchester-forecast--context-a--20261029-232257-091070"
+  },
+  {
+    "task_id": "045-united-bag-fee-page",
+    "status": "completed",
+    "reward": "0.0",
+    "cost_status": "complete",
+    "agent_usd": "0.01411503",
+    "trial_path": "runs/context-formal/formal/A/045-united-bag-fee-page/045-united-bag-fee-page--context-a--20261029-232915-669721"
+  },
+  {
+    "task_id": "048-tamiflu-side-effects",
+    "status": "completed",
+    "reward": "1.0",
+    "cost_status": "complete",
+    "agent_usd": "0.01030449",
+    "trial_path": "runs/context-formal/formal/A/048-tamiflu-side-effects/048-tamiflu-side-effects--context-a--20261029-234607-954662"
+  },
+  {
+    "task_id": "057-set-undo-steps-100",
+    "status": "completed",
+    "reward": "1.0",
+    "cost_status": "complete",
+    "agent_usd": "0.01737417",
+    "trial_path": "runs/context-formal/formal/A/057-set-undo-steps-100/057-set-undo-steps-100--context-a--20261029-235058-117426"
+  },
+  {
+    "task_id": "063-red-slide-numbers",
+    "status": "completed",
+    "reward": "1.0",
+    "cost_status": "complete",
+    "agent_usd": "0.02657874",
+    "trial_path": "runs/context-formal/formal/A/063-red-slide-numbers/063-red-slide-numbers--context-a--20261029-235735-131414"
+  },
+  {
+    "task_id": "066-set-slide-image-heights",
+    "status": "completed",
+    "reward": "0.0",
+    "cost_status": "complete",
+    "agent_usd": "0.02002482",
+    "trial_path": "runs/context-formal/formal/A/066-set-slide-image-heights/066-set-slide-image-heights--context-a--20261030-001052-900803"
+  },
+  {
+    "task_id": "072-save-speedtest-results",
+    "status": "completed",
+    "reward": "0.0",
+    "cost_status": "complete",
+    "agent_usd": "0.00462618",
+    "trial_path": "runs/context-formal/formal/A/072-save-speedtest-results/072-save-speedtest-results--context-a--20261030-002643-542074"
+  },
+  {
+    "task_id": "075-nuclei-locations",
+    "status": "infrastructure_failure",
+    "reward": "",
+    "cost_status": "missing_or_ambiguous_trajectory",
+    "agent_usd": "",
+    "trial_path": "runs/context-formal/formal/A/075-nuclei-locations/075-nuclei-locations--context-a--20261030-012310-403015"
+  }
+]

@@ -1,0 +1,13 @@
+# Scheme A component A only. The model and decoding settings are locked in the
+# run manifest before a real experiment; this file controls context behavior.
+experiment_id: context-A
+base_agent_config: contributions/liu-yalin/developer_pack/settings/mini_base.yaml
+task_list: contributions/liu-yalin/developer_pack/settings/task_list_40.txt
+leanharness:
+  context_management:
+    output_shaping_enabled: true
+    history_compaction_enabled: false
+    output_char_limit: 3000
+    history_keep_recent_groups: 6
+    history_batch_groups: 6
+    old_observation_char_limit: 320

@@ -1,0 +1,34 @@
+[
+  {
+    "task_id": "084-plate-thermal-sim",
+    "status": "completed",
+    "reward": "0.0",
+    "cost_status": "complete",
+    "agent_usd": "0.02788152",
+    "trial_path": "runs/context-formal/formal/A/084-plate-thermal-sim/084-plate-thermal-sim--context-a--20261030-022343-662556"
+  },
+  {
+    "task_id": "087-spreadsheet-to-doc-table",
+    "status": "completed",
+    "reward": "1.0",
+    "cost_status": "complete",
+    "agent_usd": "0.02592363",
+    "trial_path": "runs/context-formal/formal/A/087-spreadsheet-to-doc-table/087-spreadsheet-to-doc-table--context-a--20261030-022645-782935"
+  },
+  {
+    "task_id": "108-create-mail-folders",
+    "status": "completed",
+    "reward": "0.0",
+    "cost_status": "complete",
+    "agent_usd": "0.01644438",
+    "trial_path": "runs/context-formal/formal/A/108-create-mail-folders/108-create-mail-folders--context-a--20261030-022932-787672"
+  },
+  {
+    "task_id": "114-nuclei-csv-open",
+    "status": "completed",
+    "reward": "1.0",
+    "cost_status": "complete",
+    "agent_usd": "0.01458078",
+    "trial_path": "runs/context-formal/formal/A/114-nuclei-csv-open/114-nuclei-csv-open--context-a--20261030-023458-695149"
+  }
+]

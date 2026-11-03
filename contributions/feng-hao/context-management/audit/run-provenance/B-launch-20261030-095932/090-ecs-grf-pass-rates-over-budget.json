@@ -1,0 +1,8 @@
+{
+  "task": "090-ecs-grf-pass-rates",
+  "run_id": "090-ecs-grf-pass-rates--context-b--20261030-121349-976487",
+  "actual_agent_usd": "0.06194934",
+  "parameter_limit_usd": 0.06,
+  "action": "retained_without_retry_continue_next",
+  "hard_cutoff": false
+}

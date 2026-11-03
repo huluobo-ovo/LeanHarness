@@ -1,0 +1,8 @@
+{
+  "task": "042-black-sale-coffee-makers",
+  "run_id": "042-black-sale-coffee-makers--context-b--20261030-064327-984580",
+  "actual_agent_usd": "0.06191754",
+  "parameter_limit_usd": 0.06,
+  "action": "retained_without_retry_continue_next",
+  "hard_cutoff": false
+}

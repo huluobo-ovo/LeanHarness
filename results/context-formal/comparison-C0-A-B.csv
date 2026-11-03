@@ -1,0 +1,4 @@
+configuration,tasks,mean_reward,mean_reward_percent,delta_C0_percentage_points,reported_cost_usd,cost_scope
+C0,40,0.48030660924153656675,48.03066092415365667500,0,1.23522744,key/account usage delta includes infrastructure retries; shared teammate baseline
+A,40,0.453843880721660275,45.384388072166027500,-2.64627285198762917500,0.88604136,final40 response usage cost; extra interrupted/retry costs separate
+B,40,0.4776155934832200775,47.7615593483220077500,-0.26910157583164892500,1.301179545,final40 response usage cost; extra interrupted/retry costs separate

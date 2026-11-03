@@ -1,0 +1,78 @@
+{
+  "local_originals_unchanged": true,
+  "matches_never_displayed": true,
+  "delivery_copies_redacted": [
+    {
+      "path": "runs/context-formal/formal/A/033-prostate-volume-est/033-prostate-volume-est--context-a--20261029-085837-423792/agent/mini-swe-agent.trajectory.json",
+      "redaction_count": 2
+    },
+    {
+      "path": "runs/context-formal/formal/A/033-prostate-volume-est/033-prostate-volume-est--context-a--20261029-085837-423792/agent/trajectory.json",
+      "redaction_count": 1
+    },
+    {
+      "path": "runs/context-formal/formal/A/039-manchester-forecast/039-manchester-forecast--context-a--20261029-232257-091070/agent/mini-swe-agent.trajectory.json",
+      "redaction_count": 2
+    },
+    {
+      "path": "runs/context-formal/formal/A/039-manchester-forecast/039-manchester-forecast--context-a--20261029-232257-091070/agent/trajectory.json",
+      "redaction_count": 1
+    },
+    {
+      "path": "runs/context-formal/formal/A/051-hide-left-dock/051-hide-left-dock--context-a--20261029-142253-605011/agent/mini-swe-agent.trajectory.json",
+      "redaction_count": 2
+    },
+    {
+      "path": "runs/context-formal/formal/A/051-hide-left-dock/051-hide-left-dock--context-a--20261029-142253-605011/agent/trajectory.json",
+      "redaction_count": 1
+    },
+    {
+      "path": "runs/context-formal/formal/A/105-search-cell-b6/105-search-cell-b6--context-a--20261029-191419-845907/agent/mini-swe-agent.trajectory.json",
+      "redaction_count": 2
+    },
+    {
+      "path": "runs/context-formal/formal/A/105-search-cell-b6/105-search-cell-b6--context-a--20261029-191419-845907/agent/trajectory.json",
+      "redaction_count": 1
+    },
+    {
+      "path": "runs/context-formal/formal/B/027-add-dota-dlc-cart/027-add-dota-dlc-cart--context-b--20261030-054821-762475/agent/mini-swe-agent.trajectory.json",
+      "redaction_count": 2
+    },
+    {
+      "path": "runs/context-formal/formal/B/027-add-dota-dlc-cart/027-add-dota-dlc-cart--context-b--20261030-054821-762475/agent/trajectory.json",
+      "redaction_count": 1
+    },
+    {
+      "path": "runs/context-formal/formal/B/039-manchester-forecast/039-manchester-forecast--context-b--20261030-063324-245395/agent/mini-swe-agent.trajectory.json",
+      "redaction_count": 2
+    },
+    {
+      "path": "runs/context-formal/formal/B/039-manchester-forecast/039-manchester-forecast--context-b--20261030-063324-245395/agent/trajectory.json",
+      "redaction_count": 1
+    },
+    {
+      "path": "runs/context-formal/formal/B/042-black-sale-coffee-makers/042-black-sale-coffee-makers--context-b--20261030-064327-984580/agent/mini-swe-agent.trajectory.json",
+      "redaction_count": 2
+    },
+    {
+      "path": "runs/context-formal/formal/B/042-black-sale-coffee-makers/042-black-sale-coffee-makers--context-b--20261030-064327-984580/agent/trajectory.json",
+      "redaction_count": 1
+    },
+    {
+      "path": "runs/context-formal/formal/B/045-united-bag-fee-page/045-united-bag-fee-page--context-b--20261030-065815-773329/agent/mini-swe-agent.trajectory.json",
+      "redaction_count": 2
+    },
+    {
+      "path": "runs/context-formal/formal/B/045-united-bag-fee-page/045-united-bag-fee-page--context-b--20261030-065815-773329/agent/trajectory.json",
+      "redaction_count": 1
+    },
+    {
+      "path": "runs/context-formal/formal/B/051-hide-left-dock/051-hide-left-dock--context-b--20261030-071708-806109/agent/mini-swe-agent.trajectory.json",
+      "redaction_count": 2
+    },
+    {
+      "path": "runs/context-formal/formal/B/051-hide-left-dock/051-hide-left-dock--context-b--20261030-071708-806109/agent/trajectory.json",
+      "redaction_count": 1
+    }
+  ]
+}

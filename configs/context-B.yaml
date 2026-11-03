@@ -1,0 +1,12 @@
+# Scheme A component B only.
+experiment_id: context-B
+base_agent_config: contributions/liu-yalin/developer_pack/settings/mini_base.yaml
+task_list: contributions/liu-yalin/developer_pack/settings/task_list_40.txt
+leanharness:
+  context_management:
+    output_shaping_enabled: false
+    history_compaction_enabled: true
+    output_char_limit: 3000
+    history_keep_recent_groups: 6
+    history_batch_groups: 6
+    old_observation_char_limit: 320
